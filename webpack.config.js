@@ -1,11 +1,16 @@
+var webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-    entry: path.resolve(__dirname, 'src', 'main.ts'),
+    entry: {
+        app: path.resolve(__dirname, 'src', 'main.ts'),
+        vendor: path.resolve(__dirname, 'src', 'vendor.ts'),
+        polyfills: path.resolve(__dirname, 'src', 'polyfills.ts')
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -14,21 +19,28 @@ const config = {
                 use: 'ts-loader'
             }, {
                 test: /\.scss$/,
-                use: [
-                    {
-                        loader: "style-loader" // creates style nodes from JS strings
-                    }, {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }, {
-                        loader: "sass-loader" // compiles Sass to CSS
-                    }
-                ]
+                use: 'style-loader!css-loader!sass-loader'
+            }, {
+                test: /\.(html)$/,
+                use: 'html-loader'
             }
         ]
     },
     plugins: [
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)@angular/,
+            path.resolve(__dirname, 'src'), // location of your src
+            {} // a map of your routes
+        ),
+
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor', 'polyfills']
+        }),
+
         new HtmlWebpackPlugin({
-            title: 'Sponsoren CRM'
+            template: path.resolve(__dirname, 'src', 'index.template.html')
         })
     ],
     devServer: {
