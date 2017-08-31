@@ -6,6 +6,8 @@ before_script:
 script: npm run build
 deploy:
   - provider: script
-    script: node scripts/deploy.js $FTP_HOST $FTP_USER $FTP_PASSWORD
+    script:
+      - npm install sftp-sync-deploy
+      - node scripts/deploy.js $FTP_HOST $FTP_USER $FTP_PASSWORD
     on:
       branch: master
