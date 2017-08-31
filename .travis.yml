@@ -5,8 +5,8 @@ before_script:
   - npm install
 script: npm run build
 deploy:
-  skip_cleanup: true
   - provider: script
+    skip_cleanup: true
     script: node scripts/deploy.js $FTP_HOST $FTP_USER $FTP_PASSWORD
     on:
       branch: master
