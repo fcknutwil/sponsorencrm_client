@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdInputModule} from '@angular/material';
+import {LoginModule} from './login/login.module.ts';
 
-import { AppComponent } from './app.component.ts';
+import {AppComponent} from './app.component.ts';
 
 @NgModule({
     declarations: [
@@ -13,9 +13,10 @@ import { AppComponent } from './app.component.ts';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        MdInputModule
+        LoginModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
