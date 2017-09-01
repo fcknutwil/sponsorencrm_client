@@ -1,20 +1,19 @@
 import {NgModule} from "@angular/core";
-import {MdInputModule} from '@angular/material';
-import {MdButtonModule} from '@angular/material';
 
 import {LoginComponent} from './login.component.ts';
+import {SharedModule} from "../shared/shared.module.ts";
 
 @NgModule({
     declarations: [
         LoginComponent
     ],
     imports: [
-        MdInputModule,
-        MdButtonModule
+        SharedModule
     ],
     exports: [
         LoginComponent
-    ]
+    ],
+    providers: []
 })
 export class LoginModule {
 }
