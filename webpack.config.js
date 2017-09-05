@@ -51,6 +51,7 @@ const config = {
             template: path.resolve(__dirname, 'src', 'index.template.html')
         })
     ],
+    devtool: "source-map",
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
