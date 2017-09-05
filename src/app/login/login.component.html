@@ -1,15 +1,17 @@
 <div layout="column">
+<form (ngSubmit)="login()" #loginForm="ngForm">
     <div flex>
         <md-form-field>
-            <input [(ngModel)]="user" mdInput placeholder="Benutzer" />
+            <input [(ngModel)]="user" name="user" required mdInput placeholder="Benutzer" />
         </md-form-field>
     </div>
     <div flex>
         <md-form-field>
-            <input [(ngModel)]="password" mdInput placeholder="Passwort" type="password" />
+            <input [(ngModel)]="password" name="password" required mdInput placeholder="Passwort" type="password" />
         </md-form-field>
     </div>
     <div flex>
-        <button (click)="login()" md-button>Login</button>
+        <button md-button [disabled]="!loginForm.form.valid">Login</button>
     </div>
+</form>
 </div>
