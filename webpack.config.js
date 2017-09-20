@@ -14,7 +14,8 @@ const config = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json']
+        extensions: ['.ts', '.js', '.json'],
+        modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
     },
     module: {
         rules: [
