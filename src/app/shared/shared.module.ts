@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {MdInputModule, MdButtonModule} from "@angular/material";
 import {SessionService} from "./session.service";
+import {AuthGuard} from "./auth-guard.service";
 
 @NgModule({
     imports: [
@@ -12,7 +13,7 @@ import {SessionService} from "./session.service";
         MdInputModule
     ],
     declarations: [],
-    providers: [SessionService],
+    providers: [SessionService, AuthGuard],
     exports: [
         CommonModule,
         FormsModule,
