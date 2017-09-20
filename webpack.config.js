@@ -6,14 +6,24 @@ const config = {
     entry: {
         app: path.resolve(__dirname, 'src', 'main.ts'),
         vendor: path.resolve(__dirname, 'src', 'vendor.ts'),
-        polyfills: path.resolve(__dirname, 'src', 'polyfills.ts')
+        polyfills: path.resolve(__dirname, 'src', 'polyfills.ts'),
+        sass: path.resolve(__dirname, 'src', 'style.scss')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
     },
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
+    },
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: { /* Loader options go here */ }
+            },
             {
                 test: /\.ts$/,
                 use: 'ts-loader'
