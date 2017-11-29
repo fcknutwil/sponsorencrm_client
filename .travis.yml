@@ -15,3 +15,9 @@ deploy:
     script: node scripts/deploy.js $FTP_HOST $FTP_USER $FTP_PASSWORD
     on:
       branch: master
+  - provider: releases
+    skip_cleanup: true
+    api_key: $GITHUB_OAUTH
+    file: dist/index.html
+    on:
+      branch: master
