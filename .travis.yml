@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "7"
+env:
+  - MAJOR_VERSION=0
 before_script:
   - npm install
 script: npm run build
@@ -8,7 +10,7 @@ after_success:
   # Set up git user name and tag this commit
   - git config --local user.name $GITHUB_USER
   - git config --local user.email $GITHUB_MAIL
-  - git tag $TRAVIS_BUILD_NUMBER
+  - git tag "$MAJOR_VERSION.$TRAVIS_BUILD_NUMBER"
 deploy:
   - provider: script
     skip_cleanup: true
