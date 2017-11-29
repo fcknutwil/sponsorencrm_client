@@ -4,6 +4,11 @@ node_js:
 before_script:
   - npm install
 script: npm run build
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name $GITHUB_USER
+      - git config --local user.email $GITHUB_MAIL
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   - provider: script
     skip_cleanup: true
