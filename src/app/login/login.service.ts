@@ -6,10 +6,10 @@ export class LoginService {
 
     private loggedIn: boolean;
 
-    constructor(private sessionService: SessionService){}
+    constructor(private sessionService: SessionService) {}
 
-    public login(user: string, password: string): boolean{
-        if(user === password) {
+    public login(user: string, password: string): boolean {
+        if (user === password) {
             this.sessionService.create();
             return true;
         }

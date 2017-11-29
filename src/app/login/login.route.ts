@@ -1,5 +1,5 @@
 import {LoginComponent} from "./login.component";
 
-export var routes = [
+export let routes = [
     {path: "login", component: LoginComponent}
 ];

@@ -5,6 +5,6 @@ import {Component} from "@angular/core";
     selector: "typ",
     template: "HelloWorld"
 })
-export class TypComponent{
+export class TypComponent {
 
 }
