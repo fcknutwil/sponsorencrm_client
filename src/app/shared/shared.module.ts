@@ -11,7 +11,7 @@ import {HttpModule} from "@angular/http";
         CommonModule,
         FormsModule,
         MatButtonModule,
-        MatButtonModule,
+        MatInputModule,
         HttpModule
     ],
     declarations: [],

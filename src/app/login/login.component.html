@@ -1,17 +1,17 @@
 <div layout="column">
 <form (ngSubmit)="login()" #loginForm="ngForm">
     <div flex>
-        <md-form-field>
-            <input [(ngModel)]="loginRequest.name" name="user" required mdInput placeholder="Benutzer" />
-        </md-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="loginRequest.name" name="user" required matInput placeholder="Benutzer" />
+        </mat-form-field>
     </div>
     <div flex>
-        <md-form-field>
-            <input [(ngModel)]="loginRequest.password" name="password" required mdInput placeholder="Passwort" type="password" />
-        </md-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="loginRequest.password" name="password" required matInput placeholder="Passwort" type="password" />
+        </mat-form-field>
     </div>
     <div flex>
-        <button md-button [disabled]="!loginForm.form.valid">Login</button>
+        <button mat-raised-button [disabled]="!loginForm.form.valid">Login</button>
     </div>
 </form>
 </div>
