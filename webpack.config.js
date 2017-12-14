@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: {
@@ -23,7 +24,7 @@ const config = {
                 test: /\.ts$/,
                 enforce: 'pre',
                 loader: 'tslint-loader',
-                options: { /* Loader options go here */ }
+                options: {/* Loader options go here */}
             },
             {
                 test: /\.ts$/,
@@ -60,7 +61,10 @@ const config = {
 
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.template.html')
-        })
+        }),
+
+        new CopyWebpackPlugin([{from: path.join(__dirname, "static"), to: path.join(__dirname, "dist")}])
+
     ],
     devtool: "source-map",
     devServer: {
