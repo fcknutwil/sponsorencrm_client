@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule, MatInputModule} from "@angular/material";
 import {SessionService} from "./session.service";
 import {AuthGuard} from "./auth-guard.service";
-import {HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
@@ -12,7 +12,7 @@ import {HttpModule} from "@angular/http";
         FormsModule,
         MatButtonModule,
         MatInputModule,
-        HttpModule
+        HttpClientModule
     ],
     declarations: [],
     providers: [SessionService, AuthGuard],
