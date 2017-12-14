@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^8.0.26",
     "concurrently": "^3.5.0",
+    "copy-webpack-plugin": "^4.3.0",
     "css-loader": "^0.28.7",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
