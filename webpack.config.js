@@ -71,6 +71,7 @@ const config = {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
         port: 9000,
+        historyApiFallback: true,
         proxy: {
             '/rest': 'http://localhost:9001'
         }
