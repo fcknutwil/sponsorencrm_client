@@ -1,18 +1,20 @@
 import {Injectable} from "@angular/core";
+import {LoginRequest, LoginResponse} from "./login.types";
+import {Http} from "@angular/http";
 import {SessionService} from "../shared/session.service";
 
 @Injectable()
 export class LoginService {
 
-    private loggedIn: boolean;
+    constructor(private http: Http, private sessionService: SessionService) {}
 
-    constructor(private sessionService: SessionService) {}
-
-    public login(user: string, password: string): boolean {
-        if (user === password) {
-            this.sessionService.create();
-            return true;
-        }
-        return false;
+    public login(request: LoginRequest): Promise<LoginResponse> {
+        return this.http
+            .put("/rest/login", request)
+            .toPromise()
+            .then((response) => {
+                this.sessionService.create();
+                return response.json() as LoginResponse;
+            });
     }
 }

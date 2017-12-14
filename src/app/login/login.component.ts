@@ -1,17 +1,19 @@
 import { Component} from "@angular/core";
 import {LoginService} from "./login.service";
+import {LoginRequest} from "./login.types";
 
 @Component({
     selector: "login",
     template: require("./login.component.html")
 })
 export class LoginComponent {
-    private user: string;
-    private password: string;
+    private loginRequest: LoginRequest;
 
-    public constructor(private loginService: LoginService) {}
+    public constructor(private loginService: LoginService) {
+        this.loginRequest = new LoginRequest();
+    }
 
     public login(): void {
-        this.loginService.login(this.user, this.password);
+        this.loginService.login(this.loginRequest);
     }
 }

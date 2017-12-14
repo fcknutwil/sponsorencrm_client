@@ -2,12 +2,12 @@
 <form (ngSubmit)="login()" #loginForm="ngForm">
     <div flex>
         <md-form-field>
-            <input [(ngModel)]="user" name="user" required mdInput placeholder="Benutzer" />
+            <input [(ngModel)]="loginRequest.name" name="user" required mdInput placeholder="Benutzer" />
         </md-form-field>
     </div>
     <div flex>
         <md-form-field>
-            <input [(ngModel)]="password" name="password" required mdInput placeholder="Passwort" type="password" />
+            <input [(ngModel)]="loginRequest.password" name="password" required mdInput placeholder="Passwort" type="password" />
         </md-form-field>
     </div>
     <div flex>
