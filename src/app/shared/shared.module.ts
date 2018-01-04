@@ -2,9 +2,10 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule, MatInputModule} from "@angular/material";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {SessionService} from "./session.service";
 import {AuthGuard} from "./auth-guard.service";
-import {HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./jwt-interceptor.service";
 
 @NgModule({
     imports: [
@@ -15,7 +16,11 @@ import {HttpClientModule} from "@angular/common/http";
         HttpClientModule
     ],
     declarations: [],
-    providers: [SessionService, AuthGuard],
+    providers: [SessionService, AuthGuard, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+    }],
     exports: [
         CommonModule,
         FormsModule,
