@@ -73,7 +73,10 @@ const config = {
         port: 9000,
         historyApiFallback: true,
         proxy: {
-            '/rest': 'http://localhost:9001'
+            '/rest': {
+                target: 'http://localhost:1080/index.php',
+                pathRewrite: {'^/rest' : ''}
+            }
         }
     }
 };
