@@ -1,6 +1,6 @@
 import {TypComponent} from "./typ.component";
-import {AuthGuard} from "../shared/auth-guard.service";
+import {LoggedInGuard} from "../shared/logged-in-guard.service";
 
 export const routes = [
-    {path: "typ", component: TypComponent, canActivate: [AuthGuard]}
+    {path: "typ", component: TypComponent, canActivate: [LoggedInGuard]}
 ];
