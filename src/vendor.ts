@@ -11,5 +11,6 @@ import "@angular/platform-browser";
 import "@angular/platform-browser-dynamic";
 import "@angular/router";
 
-// RxJS
 import "rxjs";
+import "lodash";
+import "moment";

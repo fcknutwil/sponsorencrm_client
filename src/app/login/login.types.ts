@@ -4,5 +4,6 @@ export class LoginRequest {
 }
 
 export interface LoginResponse {
-    key: string;
+    token: string;
+    expire: number;
 }
