@@ -14,7 +14,7 @@ export class TypComponent {
 
     public load(): Promise<void>{
         return this.http
-            .get("/rest/test")
+            .get("/typ")
             .toPromise()
             .then((response: any) => {
                this.message = response.message;

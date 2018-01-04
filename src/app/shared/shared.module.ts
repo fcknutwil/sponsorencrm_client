@@ -7,6 +7,7 @@ import {SessionService} from "./session.service";
 import {LoggedInGuard} from "./logged-in-guard.service";
 import {LoggedOutGuard} from "./logged-out-guard.service";
 import {JwtInterceptor} from "./jwt-interceptor.service";
+import {UrlInterceptor} from "./url-interceptor.service";
 
 @NgModule({
     imports: [
@@ -20,6 +21,10 @@ import {JwtInterceptor} from "./jwt-interceptor.service";
     providers: [SessionService, LoggedInGuard, LoggedOutGuard, {
         provide: HTTP_INTERCEPTORS,
         useClass: JwtInterceptor,
+        multi: true
+    }, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: UrlInterceptor,
         multi: true
     }],
     exports: [

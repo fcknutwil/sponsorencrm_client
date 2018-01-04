@@ -11,7 +11,7 @@ export class LoginService {
 
     public login(request: LoginRequest): Promise<void> {
         return this.http
-            .put<LoginResponse>("/rest/login", request)
+            .put<LoginResponse>("/login", request)
             .toPromise()
             .then((response) => {
                 this.sessionService.create(response.token, response.expire);
