@@ -1,11 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.container_old {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #overlay {
   position: fixed;
   display: block;
@@ -15,9 +9,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   padding: auto;
+}
+
+h1.app-name {
+  margin-left: 8px;
 }
 
 .container {
@@ -30,26 +28,29 @@
   right: 0;
 }
 
-  .toolbar .is-mobile{
+@media (max-width: 600px) {
+  .toolbar {
     position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
 
-h1.app-name {
-  margin-left: 8px;
+  .sidenav-container {
+    flex: 1 0 auto;
+  }
 }
 
-.sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-  flex: 1;
-}
+@media (min-width: 601px) {
+  .container{
+    max-width: 650px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.is-mobile .sidenav-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-     `<body>` to be our scrolling element for mobile layouts. */
-  flex: 1 0 auto;
+  .sidenav-container {
+    flex: 1;
+  }
 }
 
 
