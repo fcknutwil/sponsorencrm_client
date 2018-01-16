@@ -5,7 +5,8 @@ import {Typ} from "./typ.types";
 @Injectable()
 export class TypService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     public getList(): Promise<Typ[]> {
         return this.http
@@ -14,17 +15,17 @@ export class TypService {
     }
 
     public get(id: string): Promise<Typ> {
-        if(id === "new") {
+        if (id === "new") {
             return Promise.resolve(new Typ());
         }
         return this.http
-            .get<Typ>("/typ/"+id)
+            .get<Typ>("/typ/" + id)
             .toPromise();
     }
 
     public save(typ: Typ): Promise<Typ> {
-        if(typ.id) {
-            return this.http.put<Typ>("/typ/"+typ.id, typ).toPromise();
+        if (typ.id) {
+            return this.http.put<Typ>("/typ/" + typ.id, typ).toPromise();
         } else {
             return this.http.post<Typ>("/typ", typ).toPromise();
         }

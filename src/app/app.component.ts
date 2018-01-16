@@ -13,15 +13,15 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(private pendingRequestService: PendingRequestService) {
     }
 
-    ngOnInit(): void {
-        let self = this;
+    public ngOnInit(): void {
+        const self = this;
         this.subscription = this.pendingRequestService.hasPendingRequests()
-            .subscribe(hasPendingRequests => {
+            .subscribe((hasPendingRequests) => {
                 self.isOverlayVisible = hasPendingRequests;
             });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
 }

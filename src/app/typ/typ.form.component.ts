@@ -14,13 +14,13 @@ export class TypFormComponent implements OnInit {
     constructor(private typService: TypService, private route: ActivatedRoute, private router: Router) {
     }
 
-    ngOnInit(): void {
-        this.route.params.subscribe(params =>
-            this.typService.get(params['id']).then((data) => {
-            this.entry = data;
-        }));
+    public ngOnInit(): void {
+        this.route.params.subscribe((params) =>
+            this.typService.get(params.id).then((data) => {
+                this.entry = data;
+            }));
     }
-    
+
     public save(): void {
         this.typService.save(this.entry)
             .then(() => {

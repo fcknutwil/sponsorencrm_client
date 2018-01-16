@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AppComponent} from "./app.component";
 import {LoginModule} from "./login/login.module";
 import {SharedModule} from "./shared/shared.module";
+import {EngagementModule} from "./engagement/engagement.module";
 
 const appRoutes: Routes = [
     {
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
         BrowserModule,
         BrowserAnimationsModule,
         LoginModule,
+        EngagementModule,
         TypModule,
         SharedModule,
         RouterModule.forRoot(appRoutes)

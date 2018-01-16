@@ -12,10 +12,10 @@ export class PendingRequestInterceptor implements HttpInterceptor {
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.pendingRequestService.request();
         return next.handle(request).pipe(
-            map(event => {
+            map((event) => {
                 return event;
             }),
-            catchError(error => {
+            catchError((error) => {
                 return Observable.throw(error);
             }),
             finalize(() => {
