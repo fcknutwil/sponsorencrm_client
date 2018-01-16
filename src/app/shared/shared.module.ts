@@ -1,7 +1,13 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {MatButtonModule, MatInputModule, MatProgressSpinnerModule, MatIconModule} from "@angular/material";
+import {
+    MatButtonModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatDialogModule
+} from "@angular/material";
 import {MatTableModule} from "@angular/material/table";
 import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
@@ -12,6 +18,7 @@ import {JwtInterceptor} from "./jwt-interceptor.service";
 import {UrlInterceptor} from "./url-interceptor.service";
 import {PendingRequestInterceptor} from "./pending-request-interceptor.service";
 import {PendingRequestService} from "./pending-request.service";
+import {YesNoDialogComponent} from "./yes-no-dialog.component";
 
 @NgModule({
     imports: [
@@ -19,13 +26,14 @@ import {PendingRequestService} from "./pending-request.service";
         CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatDialogModule,
         MatIconModule,
         MatInputModule,
         MatProgressSpinnerModule,
         MatTableModule,
         HttpClientModule
     ],
-    declarations: [],
+    declarations: [YesNoDialogComponent],
     providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, {
         provide: HTTP_INTERCEPTORS,
         useClass: PendingRequestInterceptor,
@@ -44,10 +52,14 @@ import {PendingRequestService} from "./pending-request.service";
         CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatDialogModule,
         MatIconModule,
         MatInputModule,
         MatProgressSpinnerModule,
         MatTableModule
+    ],
+    entryComponents: [
+        YesNoDialogComponent
     ]
 })
 export class SharedModule {

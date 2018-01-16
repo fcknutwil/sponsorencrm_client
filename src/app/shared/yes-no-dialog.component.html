@@ -1,0 +1,6 @@
+<h2 mat-dialog-title *ngIf="data.title">{{data.title}}</h2>
+<mat-dialog-content *ngIf="data.text">{{data.text}}</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">Nein</button>
+    <button mat-button [mat-dialog-close]="true">Ja</button>
+</mat-dialog-actions>

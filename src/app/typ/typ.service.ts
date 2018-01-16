@@ -30,4 +30,7 @@ export class TypService {
         }
     }
 
+    public delete(typ: Typ): Promise<any> {
+        return this.http.delete("/typ/" + typ.id).toPromise();
+    }
 }
