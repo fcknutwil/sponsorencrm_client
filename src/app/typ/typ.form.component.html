@@ -1,0 +1,12 @@
+<div layout="column" *ngIf="entry">
+    <form (ngSubmit)="save()" #typForm="ngForm">
+        <div flex>
+            <mat-form-field>
+                <input [(ngModel)]="entry.name" name="name" required matInput placeholder="Name" />
+            </mat-form-field>
+        </div>
+        <div flex>
+            <button mat-raised-button [disabled]="!typForm.form.valid">Speichern</button>
+        </div>
+    </form>
+</div>

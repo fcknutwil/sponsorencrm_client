@@ -1,14 +1,22 @@
 import {NgModule} from "@angular/core";
-import {TypComponent} from "./typ.component";
+import {TypListComponent} from "./typ.list.component";
 import {RouterModule} from "@angular/router";
 import {routes} from "./typ.route";
+import {SharedModule} from "../shared/shared.module";
+import {TypService} from "./typ.service";
+import {TypFormComponent} from "./typ.form.component";
 
 @NgModule({
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        SharedModule
     ],
     declarations: [
-        TypComponent
+        TypListComponent,
+        TypFormComponent
+    ],
+    providers: [
+        TypService
     ]
 })
 export class TypModule {

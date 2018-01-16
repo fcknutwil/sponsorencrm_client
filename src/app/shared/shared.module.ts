@@ -1,7 +1,9 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {MatButtonModule, MatInputModule, MatProgressSpinnerModule} from "@angular/material";
+import {MatButtonModule, MatInputModule, MatProgressSpinnerModule, MatIconModule} from "@angular/material";
+import {MatTableModule} from "@angular/material/table";
+import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {SessionService} from "./session.service";
 import {LoggedInGuard} from "./logged-in-guard.service";
@@ -14,10 +16,13 @@ import {PendingRequestService} from "./pending-request.service";
 @NgModule({
     imports: [
         CommonModule,
+        CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatIconModule,
         MatInputModule,
         MatProgressSpinnerModule,
+        MatTableModule,
         HttpClientModule
     ],
     declarations: [],
@@ -36,10 +41,13 @@ import {PendingRequestService} from "./pending-request.service";
     }],
     exports: [
         CommonModule,
+        CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatIconModule,
         MatInputModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatTableModule
     ]
 })
 export class SharedModule {

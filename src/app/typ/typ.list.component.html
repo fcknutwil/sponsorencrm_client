@@ -1,0 +1,22 @@
+<mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button routerLink="/typ/new">
+                <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
+            </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button routerLink="/typ/{{element.id}}">
+                <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'actions']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'actions']"></mat-row>
+
+</mat-table>
