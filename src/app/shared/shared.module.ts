@@ -3,12 +3,14 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {
     MatButtonModule,
+    MatCheckboxModule,
     MatInputModule,
+    MatRadioModule,
     MatProgressSpinnerModule,
+    MatTableModule,
     MatIconModule,
     MatDialogModule
 } from "@angular/material";
-import {MatTableModule} from "@angular/material/table";
 import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {SessionService} from "./session.service";
@@ -19,6 +21,7 @@ import {UrlInterceptor} from "./url-interceptor.service";
 import {PendingRequestInterceptor} from "./pending-request-interceptor.service";
 import {PendingRequestService} from "./pending-request.service";
 import {YesNoDialogComponent} from "./yes-no-dialog.component";
+import {ZahlungPipe} from "./zahlung.pipe";
 
 @NgModule({
     imports: [
@@ -26,14 +29,16 @@ import {YesNoDialogComponent} from "./yes-no-dialog.component";
         CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatCheckboxModule,
         MatDialogModule,
         MatIconModule,
         MatInputModule,
+        MatRadioModule,
         MatProgressSpinnerModule,
         MatTableModule,
         HttpClientModule
     ],
-    declarations: [YesNoDialogComponent],
+    declarations: [YesNoDialogComponent, ZahlungPipe],
     providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, {
         provide: HTTP_INTERCEPTORS,
         useClass: PendingRequestInterceptor,
@@ -52,11 +57,14 @@ import {YesNoDialogComponent} from "./yes-no-dialog.component";
         CdkTableModule,
         FormsModule,
         MatButtonModule,
+        MatCheckboxModule,
         MatDialogModule,
         MatIconModule,
         MatInputModule,
+        MatRadioModule,
         MatProgressSpinnerModule,
-        MatTableModule
+        MatTableModule,
+        ZahlungPipe
     ],
     entryComponents: [
         YesNoDialogComponent

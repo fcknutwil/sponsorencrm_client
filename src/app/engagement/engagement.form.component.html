@@ -7,8 +7,17 @@
         </div>
         <div flex>
             <mat-form-field>
-                <input [(ngModel)]="entry.betrag" name="betrag" required matInput placeholder="Betrag" />
+                <input [(ngModel)]="entry.betrag" name="betrag" required matInput placeholder="Betrag" pattern="\d{1,6}(\.\d[0|5])?"/>
             </mat-form-field>
+        </div>
+        <div flex>
+            <mat-radio-group [(ngModel)]="entry.zahlung" name="zahlung" required>
+                <mat-radio-button [value]="'annual'">{{'annual' | zahlung}}</mat-radio-button>
+                <mat-radio-button [value]="'onetime'">{{'onetime' | zahlung}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div flex>
+            <mat-checkbox *ngFor="let typ of typs" [value]="typ.id" [checked]="isTypChecked(typ.id)" (change)="typChanged($event)">{{typ.name}}</mat-checkbox>
         </div>
         <div flex>
             <button mat-raised-button [disabled]="!engagementForm.form.valid">Speichern</button>
