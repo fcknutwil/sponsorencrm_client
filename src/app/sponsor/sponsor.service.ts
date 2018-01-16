@@ -14,6 +14,9 @@ export class SponsorService {
     }
 
     public get(id: string): Promise<Sponsor> {
+        if (id === "new") {
+            return Promise.resolve(new Sponsor());
+        }
         return this.http
             .get<Sponsor>("/sponsor/"+id)
             .toPromise();
@@ -24,5 +27,9 @@ export class SponsorService {
             return this.http.put<Sponsor>("/sponsor/"+sponsor.id, sponsor).toPromise();
         }
         return this.http.post<Sponsor>("/sponsor", sponsor).toPromise();
+    }
+
+    public delete(sponsor: Sponsor): Promise<any>  {
+        return this.http.delete("/sponsor/"+sponsor.id).toPromise();
     }
 }
