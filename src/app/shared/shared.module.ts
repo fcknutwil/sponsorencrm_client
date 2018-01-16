@@ -7,9 +7,12 @@ import {
     MatInputModule,
     MatRadioModule,
     MatProgressSpinnerModule,
+    MatSidenavModule,
     MatTableModule,
+    MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule
 } from "@angular/material";
 import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
@@ -22,6 +25,7 @@ import {PendingRequestInterceptor} from "./pending-request-interceptor.service";
 import {PendingRequestService} from "./pending-request.service";
 import {YesNoDialogComponent} from "./yes-no-dialog.component";
 import {ZahlungPipe} from "./zahlung.pipe";
+import {MediaMatcher} from "@angular/cdk/layout";
 
 @NgModule({
     imports: [
@@ -33,13 +37,16 @@ import {ZahlungPipe} from "./zahlung.pipe";
         MatDialogModule,
         MatIconModule,
         MatInputModule,
-        MatRadioModule,
+        MatListModule,
         MatProgressSpinnerModule,
+        MatRadioModule,
+        MatSidenavModule,
         MatTableModule,
-        HttpClientModule
+        MatToolbarModule,
+        HttpClientModule,
     ],
     declarations: [YesNoDialogComponent, ZahlungPipe],
-    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, {
+    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, MediaMatcher, {
         provide: HTTP_INTERCEPTORS,
         useClass: PendingRequestInterceptor,
         multi: true
@@ -61,9 +68,12 @@ import {ZahlungPipe} from "./zahlung.pipe";
         MatDialogModule,
         MatIconModule,
         MatInputModule,
-        MatRadioModule,
+        MatListModule,
         MatProgressSpinnerModule,
+        MatRadioModule,
+        MatSidenavModule,
         MatTableModule,
+        MatToolbarModule,
         ZahlungPipe
     ],
     entryComponents: [

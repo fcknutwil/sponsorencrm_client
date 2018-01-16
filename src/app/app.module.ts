@@ -12,7 +12,7 @@ import {EngagementModule} from "./engagement/engagement.module";
 const appRoutes: Routes = [
     {
         path: "",
-        redirectTo: "/typ",
+        redirectTo: "/sponsoren",
         pathMatch: "full"
     }
 ];
