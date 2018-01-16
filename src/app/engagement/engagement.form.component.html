@@ -1,25 +1,25 @@
-<div layout="column" *ngIf="entry">
+<div layout="column" class="form" *ngIf="entry">
     <form (ngSubmit)="save()" #engagementForm="ngForm">
-        <div flex>
+        <div class="form-container">
             <mat-form-field>
                 <input [(ngModel)]="entry.name" name="name" required matInput placeholder="Name" />
             </mat-form-field>
         </div>
-        <div flex>
+        <div class="form-container">
             <mat-form-field>
                 <input [(ngModel)]="entry.betrag" name="betrag" required matInput placeholder="Betrag" pattern="\d{1,6}(\.\d[0|5])?"/>
             </mat-form-field>
         </div>
-        <div flex>
+        <div class="form-container">
             <mat-radio-group [(ngModel)]="entry.zahlung" name="zahlung" required>
                 <mat-radio-button [value]="'annual'">{{'annual' | zahlung}}</mat-radio-button>
                 <mat-radio-button [value]="'onetime'">{{'onetime' | zahlung}}</mat-radio-button>
             </mat-radio-group>
         </div>
-        <div flex>
+        <div class="form-container">
             <mat-checkbox *ngFor="let typ of typs" [value]="typ.id" [checked]="isTypChecked(typ.id)" (change)="typChanged($event)">{{typ.name}}</mat-checkbox>
         </div>
-        <div flex>
+        <div class="form-container">
             <button mat-raised-button [disabled]="!engagementForm.form.valid">Speichern</button>
         </div>
     </form>
