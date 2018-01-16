@@ -1,16 +1,16 @@
-<div layout="column">
+<div layout="column" class="form">
 <form (ngSubmit)="login()" #loginForm="ngForm">
-    <div flex>
+    <div class="form-container">
         <mat-form-field>
             <input [(ngModel)]="loginRequest.name" name="user" required matInput placeholder="Benutzer" />
         </mat-form-field>
     </div>
-    <div flex>
+    <div class="form-container">
         <mat-form-field>
             <input [(ngModel)]="loginRequest.password" name="password" required matInput placeholder="Passwort" type="password" />
         </mat-form-field>
     </div>
-    <div flex>
+    <div class="form-container">
         <button mat-raised-button [disabled]="!loginForm.form.valid">Login</button>
     </div>
 </form>

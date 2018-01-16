@@ -1,18 +1,20 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {
+    MatAutocompleteModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatIconModule,
     MatInputModule,
-    MatRadioModule,
+    MatListModule,
     MatProgressSpinnerModule,
+    MatRadioModule,
     MatSidenavModule,
     MatTableModule,
     MatToolbarModule,
-    MatIconModule,
-    MatDialogModule,
-    MatListModule
 } from "@angular/material";
 import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
@@ -26,15 +28,19 @@ import {PendingRequestService} from "./pending-request.service";
 import {YesNoDialogComponent} from "./yes-no-dialog.component";
 import {ZahlungPipe} from "./zahlung.pipe";
 import {MediaMatcher} from "@angular/cdk/layout";
+import {SponsortypPipe} from "./sponsortyp.pipe";
 
 @NgModule({
     imports: [
         CommonModule,
         CdkTableModule,
         FormsModule,
+        HttpClientModule,
+        MatAutocompleteModule,
         MatButtonModule,
         MatCheckboxModule,
         MatDialogModule,
+        MatExpansionModule,
         MatIconModule,
         MatInputModule,
         MatListModule,
@@ -43,9 +49,11 @@ import {MediaMatcher} from "@angular/cdk/layout";
         MatSidenavModule,
         MatTableModule,
         MatToolbarModule,
-        HttpClientModule,
+        ReactiveFormsModule,
+        CommonModule,
+        FormsModule,
     ],
-    declarations: [YesNoDialogComponent, ZahlungPipe],
+    declarations: [YesNoDialogComponent, SponsortypPipe, ZahlungPipe],
     providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, MediaMatcher, {
         provide: HTTP_INTERCEPTORS,
         useClass: PendingRequestInterceptor,
@@ -63,9 +71,11 @@ import {MediaMatcher} from "@angular/cdk/layout";
         CommonModule,
         CdkTableModule,
         FormsModule,
+        MatAutocompleteModule,
         MatButtonModule,
         MatCheckboxModule,
         MatDialogModule,
+        MatExpansionModule,
         MatIconModule,
         MatInputModule,
         MatListModule,
@@ -74,6 +84,8 @@ import {MediaMatcher} from "@angular/cdk/layout";
         MatSidenavModule,
         MatTableModule,
         MatToolbarModule,
+        ReactiveFormsModule,
+        SponsortypPipe,
         ZahlungPipe
     ],
     entryComponents: [
