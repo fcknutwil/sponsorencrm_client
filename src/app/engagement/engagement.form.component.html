@@ -20,7 +20,7 @@
             <mat-checkbox *ngFor="let typ of typs" [value]="typ.id" [checked]="isTypChecked(typ.id)" (change)="typChanged($event)">{{typ.name}}</mat-checkbox>
         </div>
         <div class="form-container">
-            <button mat-raised-button [disabled]="!engagementForm.form.valid">Speichern</button>
+            <button mat-raised-button color="primary" [disabled]="!engagementForm.form.valid">Speichern</button>
         </div>
     </form>
 </div>
