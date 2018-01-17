@@ -1,4 +1,4 @@
-import {MediaMatcher} from '@angular/cdk/layout';
+import {MediaMatcher} from "@angular/cdk/layout";
 import {Component, OnDestroy, OnInit, ChangeDetectorRef} from "@angular/core";
 import {Subscription} from "rxjs";
 import {PendingRequestService} from "./shared/pending-request.service";
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     constructor(private pendingRequestService: PendingRequestService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-        this.mobileQuery = media.matchMedia('(max-width: 600px)');
+        this.mobileQuery = media.matchMedia("(max-width: 600px)");
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         this.mobileQuery.addListener(this._mobileQueryListener);
     }

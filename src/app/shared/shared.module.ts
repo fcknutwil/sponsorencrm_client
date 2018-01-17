@@ -94,7 +94,8 @@ import {SponsortypPipe} from "./sponsortyp.pipe";
         MatToolbarModule,
         ReactiveFormsModule,
         SponsortypPipe,
-        ZahlungPipe
+        ZahlungPipe,
+        MatDatepickerModule
     ],
     entryComponents: [
         YesNoDialogComponent

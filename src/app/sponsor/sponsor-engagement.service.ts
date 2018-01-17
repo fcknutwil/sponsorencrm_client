@@ -21,18 +21,18 @@ export class SponsorEngagementService {
             return Promise.resolve(sponsorEngament);
         }
         return this.http
-            .get<SponsorEngagement>("/sponsor/" +sponsorId+ "/engagement/" + id)
+            .get<SponsorEngagement>("/sponsor/" + sponsorId + "/engagement/" + id)
             .toPromise();
     }
 
     public save(sponsorEngagement: SponsorEngagement): Promise<SponsorEngagement> {
         if (sponsorEngagement.id) {
-            return this.http.put<SponsorEngagement>("/sponsor/"+sponsorEngagement.fk_sponsor+"/engagement/" + sponsorEngagement.id, sponsorEngagement).toPromise();
+            return this.http.put<SponsorEngagement>("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement/" + sponsorEngagement.id, sponsorEngagement).toPromise();
         }
-        return this.http.post<SponsorEngagement>("/sponsor/"+sponsorEngagement.fk_sponsor+"/engagement", sponsorEngagement).toPromise();
+        return this.http.post<SponsorEngagement>("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement", sponsorEngagement).toPromise();
     }
 
     public delete(sponsorEngagement: SponsorEngagement): Promise<any> {
-        return this.http.delete("/sponsor/"+sponsorEngagement.fk_sponsor+"/engagement/" + sponsorEngagement.id).toPromise();
+        return this.http.delete("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement/" + sponsorEngagement.id).toPromise();
     }
 }

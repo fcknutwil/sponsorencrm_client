@@ -5,7 +5,7 @@ import {EngagementService} from "./engagement.service";
 import {TypService} from "../typ/typ.service";
 import {Typ} from "../typ/typ.types";
 
-import * as _ from 'lodash';
+import * as _ from "lodash";
 import {MatCheckboxChange} from "@angular/material";
 
 @Component({
