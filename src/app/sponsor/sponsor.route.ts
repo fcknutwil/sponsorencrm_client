@@ -6,9 +6,11 @@ import {SponsorEngagementListComponent} from "./sponsor-engagement.list.componen
 
 export const routes = [
     {path: "sponsor", component: SponsorListComponent, canActivate: [LoggedInGuard]},
-    {path: "sponsor/:id", component: SponsorFormComponent, canActivate: [LoggedInGuard], children: [
+    {
+        path: "sponsor/:id", component: SponsorFormComponent, canActivate: [LoggedInGuard], children: [
         {path: "", redirectTo: "list", pathMatch: "full"},
         {path: "list", component: SponsorEngagementListComponent},
         {path: "form/:id", component: SponsorEngagementFormComponent}
-    ]}
+    ]
+    }
 ];

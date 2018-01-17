@@ -24,8 +24,9 @@ export class SponsorFormComponent implements OnInit {
     private ortList: Ort[];
     private filteredList: Observable<Ort[]>;
 
-    constructor(private service: SponsorService, private ortService: OrtService, private router: Router, private route: ActivatedRoute) {
-        this.route.params.subscribe((params) => this.service.get(params["id"]).then((data) => {
+    constructor(private service: SponsorService, private ortService: OrtService, private router: Router,
+                private route: ActivatedRoute) {
+        this.route.params.subscribe((params) => this.service.get(params.id).then((data) => {
             this.sponsor = data;
             this.plzort.setValue(data.ort);
         }));
@@ -33,7 +34,8 @@ export class SponsorFormComponent implements OnInit {
 
     public invalidPlaceValidator(): ValidatorFn {
         return (control: AbstractControl): { [key: string]: any } => {
-            return _.find(this.ortList, {"fullname": control.value}) ? null : {"kein gültiger Ort": {value: control.value}};
+            return _.find(this.ortList, {fullname: control.value})
+                ? null : {"kein gültiger Ort": {value: control.value}};
         };
     }
 
@@ -41,14 +43,14 @@ export class SponsorFormComponent implements OnInit {
         this.ortService.getList().then((data) => {
             this.ortList = data;
             this.filteredList = this.plzort.valueChanges
-                .pipe(startWith(""), map(val => this.filter(val)));
+                .pipe(startWith(""), map((val) => this.filter(val)));
         });
 
         this.plzort.valueChanges
             .debounceTime(400)
             .distinctUntilChanged()
             .subscribe((term) => {
-                const ort = <Ort>_.find(this.ortList, {"fullname": term});
+                const ort = _.find(this.ortList, {fullname: term}) as Ort;
                 if (ort) {
                     this.sponsor.fk_ort = ort.id;
                 }
@@ -64,13 +66,13 @@ export class SponsorFormComponent implements OnInit {
     }
 
     public optionSelected(event: any): void {
-        console.log(event);
+        // TODO: Prüfen was hier gemacht werden soll oder ob es entfernt werden kann
     }
 
     public save(): void {
         this.service.save(this.sponsor)
             .then(() => {
                 this.router.navigate(["/sponsor"]);
-            })
+            });
     }
 }

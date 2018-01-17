@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Engagement} from "./engagement.types";
 import {EngagementService} from "./engagement.service";
@@ -17,7 +17,8 @@ export class EngagementFormComponent implements OnInit {
     public entry: Engagement;
     public typs: Typ[];
 
-    constructor(private engagementService: EngagementService, private typService: TypService, private route: ActivatedRoute, private router: Router) {
+    constructor(private engagementService: EngagementService, private typService: TypService,
+                private route: ActivatedRoute, private router: Router) {
     }
 
     public ngOnInit(): void {
@@ -43,14 +44,13 @@ export class EngagementFormComponent implements OnInit {
     }
 
     public typChanged(event: MatCheckboxChange): void {
-        if(!_.isArray(this.entry.types)) {
+        if (!_.isArray(this.entry.types)) {
             this.entry.types = [];
         }
-        if(!event.checked) {
+        if (!event.checked) {
             _.remove(this.entry.types, (v) => v === event.source.value);
-        } else if(!this.entry.types.includes(<any>event.source.value)) {
-            this.entry.types.push(<any>event.source.value);
+        } else if (!this.entry.types.includes(event.source.value as any)) {
+            this.entry.types.push(event.source.value as any);
         }
     }
-
 }

@@ -7,7 +7,8 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class LoginService {
 
-    constructor(private http: HttpClient, private sessionService: SessionService, private router: Router) {}
+    constructor(private http: HttpClient, private sessionService: SessionService, private router: Router) {
+    }
 
     public login(request: LoginRequest): Promise<void> {
         return this.http

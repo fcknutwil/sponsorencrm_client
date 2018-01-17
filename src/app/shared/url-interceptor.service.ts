@@ -6,7 +6,8 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class UrlInterceptor implements HttpInterceptor {
 
-    constructor(public auth: SessionService) {}
+    constructor(public auth: SessionService) {
+    }
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const prefix = "/rest" + (request.url !== "/login" ? "/api" : "");

@@ -1,4 +1,3 @@
-
 export class SponsorEngagement {
     public id: number;
     public name: string;

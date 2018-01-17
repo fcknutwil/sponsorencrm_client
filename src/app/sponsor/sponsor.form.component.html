@@ -8,18 +8,19 @@
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="sponsor.name" name="name" required minlength="2" matInput placeholder="Name" />
+                <input [(ngModel)]="sponsor.name" name="name" required minlength="2" matInput placeholder="Name"/>
             </mat-form-field>
             <mat-form-field *ngIf="sponsor.typ === 'individual'">
-                <input [(ngModel)]="sponsor.vorname" name="vorname" required matInput placeholder="Vorname" />
+                <input [(ngModel)]="sponsor.vorname" name="vorname" required matInput placeholder="Vorname"/>
             </mat-form-field>
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="sponsor.strasse" name="strasse" matInput placeholder="Strasse" />
+                <input [(ngModel)]="sponsor.strasse" name="strasse" matInput placeholder="Strasse"/>
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="sponsor.ortstring" name="ort" matInput placeholder="Ort" aria-label="Ort" [matAutocomplete]="auto" [formControl]="plzort" />
+                <input [(ngModel)]="sponsor.ortstring" name="ort" matInput placeholder="Ort" aria-label="Ort"
+                       [matAutocomplete]="auto" [formControl]="plzort"/>
             </mat-form-field>
             <mat-autocomplete #auto="matAutocomplete" on-optionSelected="optionSelected($event)">
                 <mat-option *ngFor="let ort of filteredList | async" [value]="ort.fullname">
@@ -29,18 +30,20 @@
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="sponsor.telefon" name="telefon" matInput placeholder="Telefon" />
+                <input [(ngModel)]="sponsor.telefon" name="telefon" matInput placeholder="Telefon"/>
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="sponsor.email" name="email" type="email" matInput placeholder="E-Mail" email="false"/>
+                <input [(ngModel)]="sponsor.email" name="email" type="email" matInput placeholder="E-Mail"
+                       email="false"/>
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="sponsor.homepage" name="homepage" type="url" matInput placeholder="Webseite" />
+                <input [(ngModel)]="sponsor.homepage" name="homepage" type="url" matInput placeholder="Webseite"/>
             </mat-form-field>
         </div>
         <div class="form-container">
             <mat-form-field>
-                <textarea [(ngModel)]="sponsor.notiz" name="notiz" matInput placeholder="Notiz" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="8"></textarea>
+                <textarea [(ngModel)]="sponsor.notiz" name="notiz" matInput placeholder="Notiz" matTextareaAutosize
+                          matAutosizeMinRows="2" matAutosizeMaxRows="8"></textarea>
             </mat-form-field>
         </div>
         <div *ngIf="sponsor.typ === 'company'" class="form-container">
@@ -54,19 +57,22 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="form-container">
-                <mat-form-field>
-                    <input [(ngModel)]="sponsor.name_ansprechpartner" name="name_ansprechpartner" matInput placeholder="Name" />
-                </mat-form-field>
+                    <mat-form-field>
+                        <input [(ngModel)]="sponsor.name_ansprechpartner" name="name_ansprechpartner" matInput
+                               placeholder="Name"/>
+                    </mat-form-field>
                 </div>
                 <div class="form-container">
-                <mat-form-field>
-                    <input [(ngModel)]="sponsor.telefon_ansprechpartner" name="telefon_ansprechpartner" matInput placeholder="Telefon" />
-                </mat-form-field>
+                    <mat-form-field>
+                        <input [(ngModel)]="sponsor.telefon_ansprechpartner" name="telefon_ansprechpartner" matInput
+                               placeholder="Telefon"/>
+                    </mat-form-field>
                 </div>
                 <div class="form-container">
-                <mat-form-field>
-                    <input [(ngModel)]="sponsor.email_ansprechpartner" name="email_ansprechpartner" matInput placeholder="E-Mail" email="false" />
-                </mat-form-field>
+                    <mat-form-field>
+                        <input [(ngModel)]="sponsor.email_ansprechpartner" name="email_ansprechpartner" matInput
+                               placeholder="E-Mail" email="false"/>
+                    </mat-form-field>
                 </div>
             </mat-expansion-panel>
         </div>

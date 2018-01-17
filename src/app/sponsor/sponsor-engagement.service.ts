@@ -16,8 +16,8 @@ export class SponsorEngagementService {
 
     public get(sponsorId: string, id: string): Promise<SponsorEngagement> {
         if (id === "new") {
-            let sponsorEngament = new SponsorEngagement();
-            sponsorEngament.fk_sponsor = <any>sponsorId;
+            const sponsorEngament = new SponsorEngagement();
+            sponsorEngament.fk_sponsor = sponsorId as any;
             return Promise.resolve(sponsorEngament);
         }
         return this.http
@@ -25,14 +25,15 @@ export class SponsorEngagementService {
             .toPromise();
     }
 
-    public save(sponsorEngagement: SponsorEngagement): Promise<SponsorEngagement> {
-        if (sponsorEngagement.id) {
-            return this.http.put<SponsorEngagement>("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement/" + sponsorEngagement.id, sponsorEngagement).toPromise();
+    public save(se: SponsorEngagement): Promise<SponsorEngagement> {
+        if (se.id) {
+            return this.http.put<SponsorEngagement>(
+                "/sponsor/" + se.fk_sponsor + "/engagement/" + se.id, se).toPromise();
         }
-        return this.http.post<SponsorEngagement>("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement", sponsorEngagement).toPromise();
+        return this.http.post<SponsorEngagement>("/sponsor/" + se.fk_sponsor + "/engagement", se).toPromise();
     }
 
-    public delete(sponsorEngagement: SponsorEngagement): Promise<any> {
-        return this.http.delete("/sponsor/" + sponsorEngagement.fk_sponsor + "/engagement/" + sponsorEngagement.id).toPromise();
+    public delete(se: SponsorEngagement): Promise<any> {
+        return this.http.delete("/sponsor/" + se.fk_sponsor + "/engagement/" + se.id).toPromise();
     }
 }

@@ -20,15 +20,6 @@ export class SponsorEngagementListComponent implements OnInit {
         this.loadTable();
     }
 
-    private loadTable(): void {
-        this.route.parent.params.subscribe(params => {
-            if (params.id !== "new") {
-                this.id = params.id;
-                this.service.getList(params.id).then((data) => this.dataSource = new MatTableDataSource(data));
-            }
-        });
-    }
-
     public openDeleteDialog(entry: SponsorEngagement): void {
         const dialogRef = this.dialog.open(YesNoDialogComponent, {
             data: {title: "Eintrag löschen", text: "Wollen Sie den Eintrag wirklich löschen?"}
@@ -40,6 +31,16 @@ export class SponsorEngagementListComponent implements OnInit {
                     .then(() => {
                         this.loadTable();
                     });
+            }
+        });
+    }
+
+    private loadTable(): void {
+        this.route.parent.params.subscribe((params) => {
+            if (params.id !== "new") {
+                this.id = params.id;
+                this.service.getList(params.id)
+                    .then((data) => this.dataSource = new MatTableDataSource(data));
             }
         });
     }

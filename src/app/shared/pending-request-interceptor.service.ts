@@ -7,7 +7,8 @@ import {PendingRequestService} from "./pending-request.service";
 @Injectable()
 export class PendingRequestInterceptor implements HttpInterceptor {
 
-    constructor(public pendingRequestService: PendingRequestService) {}
+    constructor(public pendingRequestService: PendingRequestService) {
+    }
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.pendingRequestService.request();

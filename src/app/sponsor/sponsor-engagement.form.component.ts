@@ -21,8 +21,8 @@ export class SponsorEngagementFormComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.route.params.subscribe(params => this.id = params.id);
-        this.route.parent.params.subscribe(params => this.parentId = params.id);
+        this.route.params.subscribe((params) => this.id = params.id);
+        this.route.parent.params.subscribe((params) => this.parentId = params.id);
 
         this.engagementService.getList().then((data) => this.engagements = data);
 
@@ -35,7 +35,7 @@ export class SponsorEngagementFormComponent implements OnInit {
     public save(): void {
         this.service.save(this.entry)
             .then(() => {
-                this.router.navigate(["/sponsor/"+this.parentId]);
+                this.router.navigate(["/sponsor/" + this.parentId]);
             });
     }
 

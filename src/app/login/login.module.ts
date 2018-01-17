@@ -7,7 +7,7 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./login.route";
 
 @NgModule({
-declarations: [
+    declarations: [
         LoginComponent
     ],
     imports: [

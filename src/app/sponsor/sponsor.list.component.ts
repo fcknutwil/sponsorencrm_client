@@ -1,4 +1,3 @@
-
 import {Component, OnInit} from "@angular/core";
 import {SponsorService} from "./sponsor.service";
 import {Sponsor} from "./sponsor.types";
@@ -13,7 +12,8 @@ export class SponsorListComponent implements OnInit {
 
     public dataSource: MatTableDataSource<Sponsor>;
 
-    constructor(private service: SponsorService, public dialog: MatDialog) {}
+    constructor(private service: SponsorService, public dialog: MatDialog) {
+    }
 
     public ngOnInit() {
         this.loadTable();

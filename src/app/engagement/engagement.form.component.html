@@ -2,12 +2,13 @@
     <form (ngSubmit)="save()" #engagementForm="ngForm">
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="entry.name" name="name" required matInput placeholder="Name" />
+                <input [(ngModel)]="entry.name" name="name" required matInput placeholder="Name"/>
             </mat-form-field>
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="entry.betrag" name="betrag" required matInput placeholder="Betrag" pattern="\d{1,6}(\.\d[0|5])?"/>
+                <input [(ngModel)]="entry.betrag" name="betrag" required matInput placeholder="Betrag"
+                       pattern="\d{1,6}(\.\d[0|5])?"/>
             </mat-form-field>
         </div>
         <div class="form-container">
@@ -17,7 +18,9 @@
             </mat-radio-group>
         </div>
         <div class="form-container">
-            <mat-checkbox *ngFor="let typ of typs" [value]="typ.id" [checked]="isTypChecked(typ.id)" (change)="typChanged($event)">{{typ.name}}</mat-checkbox>
+            <mat-checkbox *ngFor="let typ of typs" [value]="typ.id" [checked]="isTypChecked(typ.id)"
+                          (change)="typChanged($event)">{{typ.name}}
+            </mat-checkbox>
         </div>
         <div class="form-container">
             <button mat-raised-button color="primary" [disabled]="!engagementForm.form.valid">Speichern</button>

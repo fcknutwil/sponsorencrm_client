@@ -5,7 +5,8 @@ import {Ort} from "./ort.types";
 @Injectable()
 export class OrtService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     public getList(): Promise<Ort[]> {
         return this.http

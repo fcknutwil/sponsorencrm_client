@@ -3,26 +3,31 @@
         <div class="form-container">
             <mat-form-field>
                 <mat-select [(value)]="entry.fk_engagement" name="engagement" required placeholder="Engagement">
-                    <mat-option [value]="engagement.id" *ngFor="let engagement of engagements">{{engagement.name}}</mat-option>
+                    <mat-option [value]="engagement.id" *ngFor="let engagement of engagements">{{engagement.name}}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="entry.von" [matDatepicker]="vonPicker" name="von" required matInput placeholder="Von" />
+                <input [(ngModel)]="entry.von" [matDatepicker]="vonPicker" name="von" required matInput
+                       placeholder="Von"/>
                 <mat-datepicker-toggle matSuffix [for]="vonPicker"></mat-datepicker-toggle>
                 <mat-datepicker #vonPicker></mat-datepicker>
             </mat-form-field>
         </div>
         <div class="form-container">
             <mat-form-field>
-                <input [(ngModel)]="entry.bis" [matDatepicker]="bisPicker" name="bis" required matInput placeholder="Bis" />
+                <input [(ngModel)]="entry.bis" [matDatepicker]="bisPicker" name="bis" required matInput
+                       placeholder="Bis"/>
                 <mat-datepicker-toggle matSuffix [for]="bisPicker"></mat-datepicker-toggle>
                 <mat-datepicker #bisPicker></mat-datepicker>
             </mat-form-field>
         </div>
         <div class="form-container">
-            <button mat-raised-button color="primary" [disabled]="!sponsorEngagementForm.form.valid">Engagement Speichern</button>
+            <button mat-raised-button color="primary" [disabled]="!sponsorEngagementForm.form.valid">Engagement
+                Speichern
+            </button>
         </div>
     </form>
 </div>
