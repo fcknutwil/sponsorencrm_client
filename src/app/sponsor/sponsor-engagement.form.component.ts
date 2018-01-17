@@ -7,7 +7,7 @@ import {Engagement} from "../engagement/engagement.types";
 
 @Component({
     selector: "sponsor-engagement-form",
-    template: require("./sponsor-engagement.form.component.html"),
+    template: require("./sponsor-engagement.form.component.html")
 })
 export class SponsorEngagementFormComponent implements OnInit {
 
@@ -16,7 +16,8 @@ export class SponsorEngagementFormComponent implements OnInit {
     public entry: SponsorEngagement;
     public engagements: Engagement[];
 
-    constructor(private router: Router, private route: ActivatedRoute, private service: SponsorEngagementService, private engagementService: EngagementService) {
+    constructor(private router: Router, private route: ActivatedRoute, private service: SponsorEngagementService,
+                private engagementService: EngagementService) {
     }
 
     public ngOnInit(): void {
