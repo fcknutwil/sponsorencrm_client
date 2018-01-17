@@ -17,9 +17,6 @@ export class ResponseErrorInterceptor implements HttpInterceptor {
             }),
             catchError((error) => {
                 this.errorMessageService.logHttpError(error);
-            }),
-            finalize(() => {
-                this.pendingRequestService.response();
             })
         );
     }
