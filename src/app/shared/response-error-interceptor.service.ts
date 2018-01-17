@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from "@angular/common/http";
+import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {map, catchError, finalize} from "rxjs/operators";
 import {ErrorMessageService} from "./error-message.service";
@@ -17,6 +17,9 @@ export class ResponseErrorInterceptor implements HttpInterceptor {
             }),
             catchError((error) => {
                 this.errorMessageService.logHttpError(error);
+                return Observable.throw(error);
+            }),
+            finalize(() => {
             })
         );
     }
