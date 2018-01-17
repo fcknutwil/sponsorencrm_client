@@ -15,7 +15,7 @@ import {
     MatProgressSpinnerModule,
     MatRadioModule,
     MatSelectModule,
-    MatSidenavModule,
+    MatSidenavModule, MatSnackBarModule,
     MatTableModule,
     MatToolbarModule,
 } from "@angular/material";
@@ -32,6 +32,8 @@ import {YesNoDialogComponent} from "./yes-no-dialog.component";
 import {ZahlungPipe} from "./zahlung.pipe";
 import {MediaMatcher} from "@angular/cdk/layout";
 import {SponsortypPipe} from "./sponsortyp.pipe";
+import {ErrorMessageService} from "./error-message.service";
+import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
 
 @NgModule({
     imports: [
@@ -53,6 +55,7 @@ import {SponsortypPipe} from "./sponsortyp.pipe";
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
+        MatSnackBarModule,
         MatTableModule,
         MatToolbarModule,
         ReactiveFormsModule,
@@ -60,9 +63,13 @@ import {SponsortypPipe} from "./sponsortyp.pipe";
         FormsModule,
     ],
     declarations: [YesNoDialogComponent, SponsortypPipe, ZahlungPipe],
-    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, MediaMatcher, {
+    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, MediaMatcher, ErrorMessageService, {
         provide: HTTP_INTERCEPTORS,
         useClass: PendingRequestInterceptor,
+        multi: true
+    }, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ResponseErrorInterceptor,
         multi: true
     }, {
         provide: HTTP_INTERCEPTORS,
@@ -90,6 +97,7 @@ import {SponsortypPipe} from "./sponsortyp.pipe";
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
+        MatSnackBarModule,
         MatTableModule,
         MatToolbarModule,
         ReactiveFormsModule,
