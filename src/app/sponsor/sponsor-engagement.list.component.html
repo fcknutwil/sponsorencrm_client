@@ -1,0 +1,36 @@
+<div *ngIf="!dataSource">
+    <p>Engagements können im Moment nicht erfasst werden.<br />(Evtl. wurde der Sponsor noch nicht gespeichert)</p>
+</div>
+<mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dauer">
+        <mat-header-cell *matHeaderCellDef>Dauer</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.von | date:'dd.MM.yy'}}-{{element.bis | date:'dd.MM.yy'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="active">
+        <mat-header-cell *matHeaderCellDef>Aktiv</mat-header-cell>
+        <mat-cell *matCellDef="let element"><mat-icon aria-label="aktiv">check</mat-icon></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button routerLink="/sponsor/{{id}}/form/new">
+                <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
+            </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button routerLink="/sponsor/{{id}}/form/{{element.id}}">
+                <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDeleteDialog(element)">
+                <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'dauer', 'actions']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'dauer', 'actions']"></mat-row>
+
+</mat-table>

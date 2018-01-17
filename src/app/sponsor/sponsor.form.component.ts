@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators/map';
 import * as _ from 'lodash';
 
 @Component({
-    selector: "sponsorForm",
+    selector: "sponsor-form",
     template: require("./sponsor.form.component.html"),
 })
 export class SponsorFormComponent implements OnInit {

@@ -6,7 +6,7 @@ import {MatDialog, MatTableDataSource} from "@angular/material";
 import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
-    selector: "sponsorList",
+    selector: "sponsor-list",
     template: require("./sponsor.list.component.html")
 })
 export class SponsorListComponent implements OnInit {

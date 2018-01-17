@@ -1,0 +1,14 @@
+<div layout="column" class="form" *ngIf="entry">
+    <form (ngSubmit)="save()" #sponsorEngagementForm="ngForm">
+        <div class="form-container">
+            <mat-form-field>
+                <mat-select [(value)]="entry.fk_engagement" name="engagement" placeholder="Engagement">
+                    <mat-option [value]="engagement.id" *ngFor="let engagement of engagements">{{engagement.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-container">
+            <button mat-raised-button [disabled]="!sponsorEngagementForm.form.valid">Engagement Speichern</button>
+        </div>
+    </form>
+</div>

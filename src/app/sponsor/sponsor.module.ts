@@ -7,6 +7,9 @@ import {CommonModule} from "@angular/common";
 import {SponsorFormComponent} from "./sponsor.form.component";
 import {SharedModule} from "../shared/shared.module";
 import {OrtService} from "./ort.service";
+import {SponsorEngagementListComponent} from "./sponsor-engagement.list.component";
+import {SponsorEngagementFormComponent} from "./sponsor-engagement.form.component";
+import {SponsorEngagementService} from "./sponsor-engagement.service";
 
 @NgModule({
     imports: [
@@ -16,10 +19,12 @@ import {OrtService} from "./ort.service";
     ],
     declarations: [
         SponsorListComponent,
-        SponsorFormComponent
+        SponsorFormComponent,
+        SponsorEngagementListComponent,
+        SponsorEngagementFormComponent
     ],
     providers: [
-        SponsorService, OrtService
+        SponsorService, OrtService, SponsorEngagementService
     ]
 })
 export class SponsorModule {
