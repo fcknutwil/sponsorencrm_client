@@ -11,7 +11,10 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
-  padding: auto;
+}
+
+.mat-spinner {
+  margin: 200px auto 0 auto;
 }
 
 h1.app-name {
