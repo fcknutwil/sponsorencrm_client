@@ -36,7 +36,7 @@ export class SponsorEngagementFormComponent implements OnInit {
         this.service.save(this.entry)
             .then(() => {
                 this.router.navigate(["/sponsor/"+this.parentId]);
-            })
+            });
     }
 
 }

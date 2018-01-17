@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Sponsor} from "./sponsor.types";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SponsorService} from "./sponsor.service";
 import {OrtService} from "./ort.service";
 import {Ort} from "./ort.types";
@@ -24,7 +24,7 @@ export class SponsorFormComponent implements OnInit {
     private ortList: Ort[];
     private filteredList: Observable<Ort[]>;
 
-    constructor(private service: SponsorService, private ortService: OrtService, private route: ActivatedRoute) {
+    constructor(private service: SponsorService, private ortService: OrtService, private router: Router, private route: ActivatedRoute) {
         this.route.params.subscribe((params) => this.service.get(params["id"]).then((data) => {
             this.sponsor = data;
             this.plzort.setValue(data.ort);
@@ -68,6 +68,9 @@ export class SponsorFormComponent implements OnInit {
     }
 
     public save(): void {
-        this.service.save(this.sponsor);
+        this.service.save(this.sponsor)
+            .then(() => {
+                this.router.navigate(["/sponsor"]);
+            })
     }
 }
