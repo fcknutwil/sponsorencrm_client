@@ -42,7 +42,6 @@
   },
   "scripts": {
     "build": "webpack",
-    "startMockServer": "concurrently \"webpack-dev-server\" \"node mock_server/index.js\"",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
