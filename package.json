@@ -42,7 +42,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server",
+    "start": "npm run server_sandbox",
+    "server_sandbox": "webpack-dev-server --env.proxy=sandbox",
+    "server_local": "webpack-dev-server --env.proxy=local",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
