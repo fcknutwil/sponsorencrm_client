@@ -80,7 +80,7 @@ module.exports = env => {
             compress: true,
             port: 9000,
             historyApiFallback: true,
-            proxy: proxies[env.proxy]
+            proxy: proxies[env ? env.proxy : "sandbox"]
         }
     }
 };
