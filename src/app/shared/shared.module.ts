@@ -63,23 +63,24 @@ import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
         FormsModule,
     ],
     declarations: [YesNoDialogComponent, SponsortypPipe, ZahlungPipe],
-    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard, MediaMatcher, ErrorMessageService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: PendingRequestInterceptor,
-        multi: true
-    }, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ResponseErrorInterceptor,
-        multi: true
-    }, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: JwtInterceptor,
-        multi: true
-    }, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: UrlInterceptor,
-        multi: true
-    }],
+    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard,
+        MediaMatcher, ErrorMessageService, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: PendingRequestInterceptor,
+            multi: true
+        }, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ResponseErrorInterceptor,
+            multi: true
+        }, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
+        }, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: UrlInterceptor,
+            multi: true
+        }],
     exports: [
         CommonModule,
         CdkTableModule,

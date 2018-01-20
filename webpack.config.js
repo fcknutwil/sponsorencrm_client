@@ -71,7 +71,11 @@ module.exports = env => {
                 template: path.resolve(__dirname, 'src', 'index.template.html')
             }),
 
-            new CopyWebpackPlugin([{from: path.join(__dirname, "static"), to: path.join(__dirname, "dist")}])
+            new CopyWebpackPlugin([{from: path.join(__dirname, "static"), to: path.join(__dirname, "dist")}]),
+
+            new webpack.ContextReplacementPlugin(
+                /(.+)?angular(\\|\/)core(.+)?/
+            )
 
         ],
         devtool: "source-map",

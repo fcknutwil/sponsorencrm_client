@@ -20,6 +20,7 @@ export class ResponseErrorInterceptor implements HttpInterceptor {
                 return Observable.throw(error);
             }),
             finalize(() => {
+                // emtpy
             })
         );
     }
