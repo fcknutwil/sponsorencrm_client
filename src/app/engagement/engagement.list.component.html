@@ -7,6 +7,10 @@
         <mat-header-cell *matHeaderCellDef>Betrag</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.betrag}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="seebli">
+        <mat-header-cell *matHeaderCellDef>SeebliPlus</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.seebli ? 'Ja' : 'Nein'}}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="zahlung">
         <mat-header-cell *matHeaderCellDef>Zahlung</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.zahlung | zahlung}}</mat-cell>
@@ -27,7 +31,7 @@
         </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['name', 'betrag', 'zahlung', 'actions']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['name', 'betrag', 'zahlung', 'actions']"></mat-row>
+    <mat-header-row *matHeaderRowDef="['name', 'betrag', 'zahlung', 'seebli', 'actions']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'betrag', 'zahlung', 'seebli', 'actions']"></mat-row>
 
 </mat-table>

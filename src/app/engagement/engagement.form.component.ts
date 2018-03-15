@@ -6,7 +6,7 @@ import {TypService} from "../typ/typ.service";
 import {Typ} from "../typ/typ.types";
 
 import * as _ from "lodash";
-import {MatCheckboxChange} from "@angular/material";
+import {MatCheckboxChange, MatSlideToggleChange} from "@angular/material";
 
 @Component({
     selector: "engagement-form",
@@ -37,6 +37,14 @@ export class EngagementFormComponent implements OnInit {
             .then(() => {
                 this.router.navigate(["/engagement"]);
             });
+    }
+
+    public isSeebliPlus(): boolean {
+        return this.entry.seebli;
+    }
+
+    public seebliPlusChanged(event: MatSlideToggleChange): void {
+        this.entry.seebli = event.checked;
     }
 
     public isTypChecked(id: number): boolean {

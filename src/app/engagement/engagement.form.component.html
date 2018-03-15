@@ -12,6 +12,9 @@
             </mat-form-field>
         </div>
         <div class="form-container">
+            <mat-slide-toggle [checked]="isSeebliPlus()" (change)="seebliPlusChanged($event)">SeebliPlus</mat-slide-toggle>
+        </div>
+        <div class="form-container">
             <mat-radio-group [(ngModel)]="entry.zahlung" name="zahlung" required>
                 <mat-radio-button [value]="'annual'">{{'annual' | zahlung}}</mat-radio-button>
                 <mat-radio-button [value]="'onetime'">{{'onetime' | zahlung}}</mat-radio-button>
