@@ -19,12 +19,12 @@
     </ng-container>
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button routerLink="/sponsor/{{id}}/form/new">
+            <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'engagement':['form', 'new']}}]">
                 <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
             </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <button mat-icon-button routerLink="/sponsor/{{id}}/form/{{element.id}}">
+            <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'engagement':['form', element.id]}}]">
                 <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
             </button>
             <button mat-icon-button (click)="openDeleteDialog(element)">

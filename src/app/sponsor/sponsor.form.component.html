@@ -76,14 +76,14 @@
                 </div>
             </mat-expansion-panel>
         </div>
-        <div class="form-container">
+        <div class="form-container" *ngIf="sponsor.id">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Engagements
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <router-outlet></router-outlet>
+                <router-outlet name="engagement"></router-outlet>
             </mat-expansion-panel>
         </div>
         <div class="form-container">
