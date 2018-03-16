@@ -35,7 +35,7 @@ export class SponsorEngagementFormComponent implements OnInit {
     public save(): void {
         this.service.save(this.entry)
             .then(() => {
-                this.router.navigate(["/sponsor", this.parentId, { outlets: {"engagement":["list"]}}]);
+                this.router.navigate(["/sponsor", this.parentId, {outlets: {engagement: ["list"]}}]);
             });
     }
 

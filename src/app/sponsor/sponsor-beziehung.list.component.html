@@ -1,0 +1,33 @@
+<div *ngIf="!dataSource">
+    <p>Beziehungen können im Moment nicht erfasst werden.<br/>(Evtl. wurde der Sponsor noch nicht gespeichert)</p>
+</div>
+<mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="typ">
+        <mat-header-cell *matHeaderCellDef>Beziehung</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.typ}}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'beziehung':['form', 'new']}}]">
+                <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
+            </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'beziehung':['form', element.id]}}]">
+                <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDeleteDialog(element)">
+                <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'typ', 'actions']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'typ', 'actions']"></mat-row>
+
+</mat-table>

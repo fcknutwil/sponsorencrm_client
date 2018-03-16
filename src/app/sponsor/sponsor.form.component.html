@@ -85,6 +85,14 @@
                 </mat-expansion-panel-header>
                 <router-outlet name="engagement"></router-outlet>
             </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Beziehungen
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <router-outlet name="beziehung"></router-outlet>
+            </mat-expansion-panel>
         </div>
         <div class="form-container">
             <button mat-raised-button color="primary" [disabled]="!sponsorForm.form.valid">Speichern</button>

@@ -10,6 +10,9 @@ import {OrtService} from "./ort.service";
 import {SponsorEngagementListComponent} from "./sponsor-engagement.list.component";
 import {SponsorEngagementFormComponent} from "./sponsor-engagement.form.component";
 import {SponsorEngagementService} from "./sponsor-engagement.service";
+import {SponsorBeziehungListComponent} from "./sponsor-beziehung.list.component";
+import {SponsorBeziehungFormComponent} from "./sponsor-beziehung.form.component";
+import {SponsorBeziehungService} from "./sponsor-beziehung.service";
 
 @NgModule({
     imports: [
@@ -21,10 +24,12 @@ import {SponsorEngagementService} from "./sponsor-engagement.service";
         SponsorListComponent,
         SponsorFormComponent,
         SponsorEngagementListComponent,
-        SponsorEngagementFormComponent
+        SponsorEngagementFormComponent,
+        SponsorBeziehungListComponent,
+        SponsorBeziehungFormComponent
     ],
     providers: [
-        SponsorService, OrtService, SponsorEngagementService
+        SponsorService, OrtService, SponsorEngagementService, SponsorBeziehungService
     ]
 })
 export class SponsorModule {
