@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Beziehung, SponsorBeziehung} from "./sponsor-beziehung.types";
+import {Beziehung, BeziehungTyp, SponsorBeziehung} from "./sponsor-beziehung.types";
 
 @Injectable()
 export class SponsorBeziehungService {
@@ -8,9 +8,9 @@ export class SponsorBeziehungService {
     constructor(private http: HttpClient) {
     }
 
-    public getBeziehungen(): Promise<Beziehung[]> {
+    public getBeziehungen(source: string): Promise<Beziehung[]> {
         return this.http
-            .get<Beziehung[]>("/beziehungen")
+            .get<Beziehung[]>("/beziehungen/" + source)
             .toPromise();
     }
 
@@ -24,6 +24,7 @@ export class SponsorBeziehungService {
         if (id === "new") {
             const sponsorEngament = new SponsorBeziehung();
             sponsorEngament.fk_sponsor = sponsorId as any;
+            sponsorEngament.typ = BeziehungTyp.crm;
             return Promise.resolve(sponsorEngament);
         }
         return this.http

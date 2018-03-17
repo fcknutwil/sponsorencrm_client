@@ -8,7 +8,7 @@
     </ng-container>
     <ng-container matColumnDef="typ">
         <mat-header-cell *matHeaderCellDef>Beziehung</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.typ}}
+        <mat-cell *matCellDef="let element">{{element.typ | beziehungtyp}}
         </mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">

@@ -36,6 +36,7 @@ import {MediaMatcher} from "@angular/cdk/layout";
 import {SponsortypPipe} from "./sponsortyp.pipe";
 import {ErrorMessageService} from "./error-message.service";
 import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
+import {BeziehungtypPipe} from "./beziehungtyp.pipe";
 
 @NgModule({
     imports: [
@@ -65,7 +66,7 @@ import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
         CommonModule,
         FormsModule,
     ],
-    declarations: [YesNoDialogComponent, SponsortypPipe, ZahlungPipe],
+    declarations: [YesNoDialogComponent, BeziehungtypPipe, SponsortypPipe, ZahlungPipe],
     providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard,
         MediaMatcher, ErrorMessageService, {
             provide: HTTP_INTERCEPTORS,
@@ -106,6 +107,7 @@ import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
         MatTableModule,
         MatToolbarModule,
         ReactiveFormsModule,
+        BeziehungtypPipe,
         SponsortypPipe,
         ZahlungPipe,
         MatDatepickerModule
