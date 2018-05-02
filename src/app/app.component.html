@@ -4,10 +4,15 @@
 
 <div class="container">
     <mat-toolbar color="primary" class="toolbar">
-        <button mat-icon-button (click)="snav.toggle()">
+        <button mat-icon-button (click)="snav.toggle()" *ngIf="isLoggedIn()">
             <mat-icon>menu</mat-icon>
         </button>
         <h1 class="app-name">Sponsoren CRM</h1>
+        <span style="flex: 1 1 auto;"></span>
+        <mat-icon *ngIf="!isLoggedIn()">lock_outline</mat-icon>
+        <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn()">
+            <mat-icon>lock_open</mat-icon>
+        </button>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container"

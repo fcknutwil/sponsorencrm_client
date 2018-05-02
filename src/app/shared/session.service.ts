@@ -18,6 +18,11 @@ export class SessionService {
         this.storage.set(SessionService.TOKEN_EXPIRE_KEY, expiresAt.toISOString());
     }
 
+    public close(): void {
+        this.storage.remove(SessionService.TOKEN_KEY);
+        this.storage.remove(SessionService.TOKEN_EXPIRE_KEY);
+    }
+
     public isActive(): boolean {
         return this.hasToken() && this.isTokenActive();
     }

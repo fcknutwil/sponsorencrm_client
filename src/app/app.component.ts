@@ -2,6 +2,10 @@ import {MediaMatcher} from "@angular/cdk/layout";
 import {Component, OnDestroy, OnInit, ChangeDetectorRef} from "@angular/core";
 import {Subscription} from "rxjs";
 import {PendingRequestService} from "./shared/pending-request.service";
+import {SessionService} from "./shared/session.service";
+import {MatDialog} from "@angular/material";
+import {YesNoDialogComponent} from "./shared/yes-no-dialog.component";
+import {Router} from "@angular/router";
 
 @Component({
     selector: "sponsoren-crm-app",
@@ -15,7 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     constructor(private pendingRequestService: PendingRequestService, private changeDetectorRef: ChangeDetectorRef,
-                private media: MediaMatcher) {
+                private media: MediaMatcher, private sessionService: SessionService, private dialog: MatDialog,
+                private router: Router) {
     }
 
     public ngOnInit(): void {
@@ -43,5 +48,22 @@ export class AppComponent implements OnInit, OnDestroy {
     public ngOnDestroy(): void {
         this.subscription.unsubscribe();
         this.mobileQuery.removeListener(this.mobileQueryListener);
+    }
+
+    public isLoggedIn(): boolean {
+        return this.sessionService.isActive();
+    }
+
+    public logout(): void {
+        const dialogRef = this.dialog.open(YesNoDialogComponent, {
+            data: {title: "Abmelden", text: "Wollen Sie sich wirklich abmelden?"}
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.sessionService.close();
+                this.router.navigate(["/login"]);
+            }
+        });
     }
 }
