@@ -1,0 +1,13 @@
+<div layout="column" class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <mat-form-field>
+                <app-file-input formControlName="file" placeholder="Logo" required></app-file-input>
+                <mat-icon matSuffix>folder open</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="form-container">
+            <button mat-raised-button color="primary" [disabled]="form.invalid">Logo Speichern</button>
+        </div>
+    </form>
+</div>

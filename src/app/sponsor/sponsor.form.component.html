@@ -101,6 +101,14 @@
                 </mat-expansion-panel-header>
                 <router-outlet name="dokument"></router-outlet>
             </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Logo
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <router-outlet name="logo"></router-outlet>
+            </mat-expansion-panel>
         </div>
         <div class="form-container">
             <button mat-raised-button color="primary" [disabled]="!sponsorForm.form.valid">Speichern</button>

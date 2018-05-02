@@ -17,6 +17,9 @@ import {DokumentFormComponent} from "./dokument.form.component";
 import {FileInputComponent} from "./file-input.component";
 import {DokumentService} from "./dokument.service";
 import {DokumentListComponent} from "./dokument.list.component";
+import {LogoService} from "./logo.service";
+import {LogoListComponent} from "./logo.list.component";
+import {LogoFormComponent} from "./logo.form.component";
 
 @NgModule({
     imports: [
@@ -33,10 +36,12 @@ import {DokumentListComponent} from "./dokument.list.component";
         SponsorBeziehungFormComponent,
         DokumentListComponent,
         DokumentFormComponent,
+        LogoListComponent,
+        LogoFormComponent,
         FileInputComponent
     ],
     providers: [
-        DokumentService, SponsorService, OrtService, SponsorEngagementService, SponsorBeziehungService
+        DokumentService, LogoService, SponsorService, OrtService, SponsorEngagementService, SponsorBeziehungService
     ]
 })
 export class SponsorModule {
