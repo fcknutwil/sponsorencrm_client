@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {LoginService} from "./login.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {StorageService} from "../shared/storage.service";
+import {USERNAME_STORAGE_KEY} from "./login.types";
 
 @Component({
     selector: "login",
@@ -9,12 +11,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class LoginComponent implements OnInit {
     private form: FormGroup;
 
-    public constructor(private loginService: LoginService) {
+    public constructor(private loginService: LoginService, private storage: StorageService) {
     }
 
     ngOnInit(): void {
         this.form = new FormGroup({
-            name: new FormControl('', Validators.required),
+            name: new FormControl(this.storage.get(USERNAME_STORAGE_KEY), Validators.required),
             password: new FormControl('', Validators.required),
         });
     }

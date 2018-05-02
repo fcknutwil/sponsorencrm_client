@@ -7,3 +7,5 @@ export interface LoginResponse {
     token: string;
     expire: number;
 }
+
+export const USERNAME_STORAGE_KEY: string = 'username';

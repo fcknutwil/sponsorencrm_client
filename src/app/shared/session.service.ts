@@ -1,18 +1,21 @@
 import {Injectable} from "@angular/core";
 
 import * as moment from "moment";
+import {StorageService} from "./storage.service";
 
 @Injectable()
 export class SessionService {
-    private static readonly TOKEN_KEY = "sponsoren_crm_jwt";
-    private static readonly TOKEN_EXPIRE_KEY = "sponsoren_crm_jwt_expire";
+    private static readonly TOKEN_KEY = "jwt";
+    private static readonly TOKEN_EXPIRE_KEY = "jwt_expire";
     private static readonly FROM_SECONDS_TO_MILLIS = 1000;
 
+    constructor(private storage: StorageService) {}
+
     public create(token: string, expire: number): void {
-        localStorage.setItem(SessionService.TOKEN_KEY, token);
+        this.storage.set(SessionService.TOKEN_KEY, token);
 
         const expiresAt = moment(expire * SessionService.FROM_SECONDS_TO_MILLIS);
-        localStorage.setItem(SessionService.TOKEN_EXPIRE_KEY, expiresAt.toISOString());
+        this.storage.set(SessionService.TOKEN_EXPIRE_KEY, expiresAt.toISOString());
     }
 
     public isActive(): boolean {
@@ -20,7 +23,7 @@ export class SessionService {
     }
 
     public getToken(): string {
-        return localStorage.getItem(SessionService.TOKEN_KEY);
+        return this.storage.get(SessionService.TOKEN_KEY);
     }
 
     private hasToken(): boolean {
@@ -28,7 +31,7 @@ export class SessionService {
     }
 
     private isTokenActive(): boolean {
-        const expiresAt = localStorage.getItem(SessionService.TOKEN_EXPIRE_KEY);
+        const expiresAt = this.storage.get(SessionService.TOKEN_EXPIRE_KEY);
         return expiresAt && moment().isBefore(moment(expiresAt));
     }
 }

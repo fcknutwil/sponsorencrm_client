@@ -37,6 +37,7 @@ import {SponsortypPipe} from "./sponsortyp.pipe";
 import {ErrorMessageService} from "./error-message.service";
 import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
 import {BeziehungtypPipe} from "./beziehungtyp.pipe";
+import {StorageService} from "./storage.service";
 
 @NgModule({
     imports: [
@@ -67,7 +68,7 @@ import {BeziehungtypPipe} from "./beziehungtyp.pipe";
         FormsModule,
     ],
     declarations: [YesNoDialogComponent, BeziehungtypPipe, SponsortypPipe, ZahlungPipe],
-    providers: [SessionService, PendingRequestService, LoggedInGuard, LoggedOutGuard,
+    providers: [SessionService, StorageService, PendingRequestService, LoggedInGuard, LoggedOutGuard,
         MediaMatcher, ErrorMessageService, {
             provide: HTTP_INTERCEPTORS,
             useClass: PendingRequestInterceptor,
