@@ -22,4 +22,10 @@ export class LogoService {
             .toPromise();
     }
 
+    public delete(sponsorId: number, logoId: number): Promise<any> {
+        return this.http
+            .delete("/sponsor/" + sponsorId + "/logo/" + logoId)
+            .toPromise();
+    }
+
 }

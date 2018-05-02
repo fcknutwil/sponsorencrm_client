@@ -13,6 +13,9 @@
             <a mat-icon-button href="rest/download/dokument/{{element.id}}">
                 <mat-icon aria-label="Eintrag bearbeiten">file_download</mat-icon>
             </a>
+            <button mat-icon-button (click)="openDeleteDialog(element)">
+                <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
+            </button>
         </mat-cell>
     </ng-container>
 

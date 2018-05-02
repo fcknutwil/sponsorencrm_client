@@ -5,6 +5,7 @@ import {Dokument} from "./dokument.types";
 import {DokumentService} from "./dokument.service";
 import {Logo} from "./logo.types";
 import {LogoService} from "./logo.service";
+import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "logo-list",
@@ -19,6 +20,21 @@ export class LogoListComponent implements OnInit {
 
     public ngOnInit(): void {
         this.loadTable();
+    }
+
+    public openDeleteDialog(entry: Dokument): void {
+        const dialogRef = this.dialog.open(YesNoDialogComponent, {
+            data: {title: "Eintrag löschen", text: "Wollen Sie den Eintrag wirklich löschen?"}
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.service.delete(this.id, entry.id)
+                    .then(() => {
+                        this.loadTable();
+                    });
+            }
+        });
     }
 
     private loadTable(): void {

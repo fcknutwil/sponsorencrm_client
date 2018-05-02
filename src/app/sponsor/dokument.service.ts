@@ -21,4 +21,10 @@ export class DokumentService {
             .toPromise();
     }
 
+    public delete(sponsorId: number, dokumentId: number): Promise<any> {
+        return this.http
+            .delete("/sponsor/" + sponsorId + "/dokument/" + dokumentId)
+            .toPromise();
+    }
+
 }
