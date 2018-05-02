@@ -20,7 +20,10 @@
             </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <button mat-icon-button [routerLink]="['/sponsor', element.id, { outlets: {'engagement':['list'], 'beziehung':['list']}}]">
+            <button mat-icon-button
+                    [routerLink]="['/sponsor', element.id,
+                        { outlets: {'engagement':['list'], 'beziehung':['list'], 'dokument':['list']}}
+                    ]">
                 <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
             </button>
             <button mat-icon-button (click)="openDeleteDialog(element)">

@@ -1,6 +1,3 @@
-<div *ngIf="!dataSource">
-    <p>Engagements können im Moment nicht erfasst werden.<br/>(Evtl. wurde der Sponsor noch nicht gespeichert)</p>
-</div>
 <mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>

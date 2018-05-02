@@ -5,6 +5,8 @@ import {SponsorEngagementFormComponent} from "./sponsor-engagement.form.componen
 import {SponsorEngagementListComponent} from "./sponsor-engagement.list.component";
 import {SponsorBeziehungListComponent} from "./sponsor-beziehung.list.component";
 import {SponsorBeziehungFormComponent} from "./sponsor-beziehung.form.component";
+import {DokumentFormComponent} from "./dokument.form.component";
+import {DokumentListComponent} from "./dokument.list.component";
 
 export const routes = [
     {path: "sponsor", component: SponsorListComponent, canActivate: [LoggedInGuard]},
@@ -14,7 +16,9 @@ export const routes = [
             {path: "list", component: SponsorEngagementListComponent, outlet: "engagement"},
             {path: "form/:id", component: SponsorEngagementFormComponent, outlet: "engagement"},
             {path: "list", component: SponsorBeziehungListComponent, outlet: "beziehung"},
-            {path: "form/:id", component: SponsorBeziehungFormComponent, outlet: "beziehung"}
+            {path: "form/:id", component: SponsorBeziehungFormComponent, outlet: "beziehung"},
+            {path: "list", component: DokumentListComponent, outlet: "dokument"},
+            {path: "form/:id", component: DokumentFormComponent, outlet: "dokument"}
         ]
     }
 ];
