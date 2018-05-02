@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
     public constructor(private loginService: LoginService, private storage: StorageService) {
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.form = new FormGroup({
             name: new FormControl(this.storage.get(USERNAME_STORAGE_KEY), Validators.required),
-            password: new FormControl('', Validators.required),
+            password: new FormControl("", Validators.required),
         });
     }
 

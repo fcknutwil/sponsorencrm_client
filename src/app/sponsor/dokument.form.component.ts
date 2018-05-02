@@ -16,7 +16,7 @@ export class DokumentFormComponent implements OnInit {
     constructor(private router: Router, private route: ActivatedRoute, private service: DokumentService) {
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.route.parent.params.subscribe((params) => {
             if (params.id !== "new") {
                 this.sponsorId = params.id;
@@ -27,14 +27,13 @@ export class DokumentFormComponent implements OnInit {
         });
     }
 
-
     public onSubmit() {
-        let uploadDatei = this.form.value.file.files[0];
+        const uploadDatei = this.form.value.file.files[0];
 
         // Ein Objekt um Dateien einzulesen
-        let reader = new FileReader();
+        const reader = new FileReader();
 
-        let senddata = new Dokument();
+        const senddata = new Dokument();
         // Auslesen der Datei-Metadaten
         senddata.name = uploadDatei.name;
         senddata.size = uploadDatei.size;
@@ -42,12 +41,12 @@ export class DokumentFormComponent implements OnInit {
 
         // Wenn der Dateiinhalt ausgelesen wurde...
         reader.onload = (theFileData: any) => {
-            senddata.content = theFileData.target.result.split(',').pop();
+            senddata.content = theFileData.target.result.split(",").pop();
 
             this.service.add(this.sponsorId, senddata)
                 .then(() => {
-                    this.router.navigate(["/sponsor", this.sponsorId, {outlets: {dokument: ["list"]}}]);
-                })
+                    this.router.navigate(["/sponsor", this.sponsorId, {outconsts: {dokument: ["list"]}}]);
+                });
         };
         reader.readAsDataURL(uploadDatei);
     }

@@ -8,7 +8,8 @@ import {StorageService} from "../shared/storage.service";
 @Injectable()
 export class LoginService {
 
-    constructor(private http: HttpClient, private sessionService: SessionService, private router: Router, private storage: StorageService) {
+    constructor(private http: HttpClient, private sessionService: SessionService, private router: Router,
+                private storage: StorageService) {
     }
 
     public login(request: LoginRequest): Promise<void> {

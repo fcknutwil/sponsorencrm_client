@@ -23,12 +23,12 @@ export class SponsorBeziehungFormComponent implements OnInit {
         this.route.params.subscribe((params) => this.id = params.id);
         this.route.parent.params.subscribe((params) => this.parentId = params.id);
 
-        this.beziehungService.getBeziehungen('crm').then((data) => this.crmBeziehungen = data);
-        this.beziehungService.getBeziehungen('donator').then((data) => this.donatorenBeziehungen = data);
+        this.beziehungService.getBeziehungen("crm").then((data) => this.crmBeziehungen = data);
+        this.beziehungService.getBeziehungen("donator").then((data) => this.donatorenBeziehungen = data);
 
         this.service.get(this.parentId, this.id)
             .then((data) => {
-                data.fk_sponsor = <any>this.parentId;
+                data.fk_sponsor = this.parentId as any;
                 switch (data.typ) {
                     case BeziehungTyp.crm:
                         data.crmValue = data.value;
