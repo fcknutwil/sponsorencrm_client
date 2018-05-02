@@ -1,19 +1,25 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {LoginService} from "./login.service";
-import {LoginRequest} from "./login.types";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
     selector: "login",
     template: require("./login.component.html")
 })
-export class LoginComponent {
-    private loginRequest: LoginRequest;
+export class LoginComponent implements OnInit {
+    private form: FormGroup;
 
     public constructor(private loginService: LoginService) {
-        this.loginRequest = new LoginRequest();
+    }
+
+    ngOnInit(): void {
+        this.form = new FormGroup({
+            name: new FormControl('', Validators.required),
+            password: new FormControl('', Validators.required),
+        });
     }
 
     public login(): void {
-        this.loginService.login(this.loginRequest);
+        this.loginService.login(this.form.value);
     }
 }
