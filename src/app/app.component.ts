@@ -1,9 +1,9 @@
 import {MediaMatcher} from "@angular/cdk/layout";
-import {Component, OnDestroy, OnInit, ChangeDetectorRef} from "@angular/core";
+import {Component, OnDestroy, OnInit, ChangeDetectorRef, ViewChild} from "@angular/core";
 import {Subscription} from "rxjs";
 import {PendingRequestService} from "./shared/pending-request.service";
 import {SessionService} from "./shared/session.service";
-import {MatDialog} from "@angular/material";
+import {MatDialog, MatSidenav} from "@angular/material";
 import {YesNoDialogComponent} from "./shared/yes-no-dialog.component";
 import {Router} from "@angular/router";
 
@@ -17,6 +17,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private mobileQuery: MediaQueryList;
     private mobileQueryListener: () => void;
     private subscription: Subscription;
+
+    @ViewChild(MatSidenav) sidenav: MatSidenav;
 
     constructor(private pendingRequestService: PendingRequestService, private changeDetectorRef: ChangeDetectorRef,
                 private media: MediaMatcher, private sessionService: SessionService, private dialog: MatDialog,
@@ -43,6 +45,11 @@ export class AppComponent implements OnInit, OnDestroy {
             link: "/typ",
             text: "Sponsortypen"
         }];
+    }
+
+    public navigate(link: string): void {
+        this.sidenav.close();
+        this.router.navigate([link]);
     }
 
     public ngOnDestroy(): void {
