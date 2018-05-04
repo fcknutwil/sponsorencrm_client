@@ -20,6 +20,9 @@ import {
     MatSnackBarModule,
     MatTableModule,
     MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatPaginatorIntl
 } from "@angular/material";
 import {CdkTableModule} from "@angular/cdk/table";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
@@ -38,6 +41,7 @@ import {ErrorMessageService} from "./error-message.service";
 import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
 import {BeziehungtypPipe} from "./beziehungtyp.pipe";
 import {StorageService} from "./storage.service";
+import {MatPaginatorIntlDeService} from "./mat-paginator-intl-de.service";
 
 @NgModule({
     imports: [
@@ -55,12 +59,14 @@ import {StorageService} from "./storage.service";
         MatInputModule,
         MatListModule,
         MatNativeDateModule,
+        MatPaginatorModule,
         MatProgressSpinnerModule,
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatSortModule,
         MatTableModule,
         MatToolbarModule,
         ReactiveFormsModule,
@@ -85,7 +91,7 @@ import {StorageService} from "./storage.service";
             provide: HTTP_INTERCEPTORS,
             useClass: UrlInterceptor,
             multi: true
-        }],
+        }, { provide: MatPaginatorIntl, useClass: MatPaginatorIntlDeService}],
     exports: [
         CommonModule,
         CdkTableModule,
@@ -99,12 +105,14 @@ import {StorageService} from "./storage.service";
         MatInputModule,
         MatListModule,
         MatNativeDateModule,
+        MatPaginatorModule,
         MatProgressSpinnerModule,
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
         MatSlideToggleModule,
         MatSnackBarModule,
+        MatSortModule,
         MatTableModule,
         MatToolbarModule,
         ReactiveFormsModule,

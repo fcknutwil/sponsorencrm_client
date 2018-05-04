@@ -1,10 +1,17 @@
-<mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
+<div layout="column" class="form">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+</div>
+<mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear (matSortChange)="sort($event)" *ngIf="dataSource">
     <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Sponsor</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.name}} {{element.vorname}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="ort">
-        <mat-header-cell *matHeaderCellDef>Ort</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ort</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.ortstring}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="active">
@@ -36,3 +43,9 @@
     <mat-row *matRowDef="let row; columns: ['name', 'ort', 'actions']"></mat-row>
 
 </mat-table>
+
+<mat-paginator #paginator
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 20]"
+               [showFirstLastButtons]="true">
+</mat-paginator>
