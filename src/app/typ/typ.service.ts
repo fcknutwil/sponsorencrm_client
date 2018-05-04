@@ -11,7 +11,13 @@ export class TypService {
     public getList(): Promise<Typ[]> {
         return this.http
             .get<Typ[]>("/typ")
-            .toPromise();
+            .toPromise()
+            .then((data) => {
+                data.map((e) => {
+                    return e.readonly = e.readonly as any == "1";
+                });
+                return data;
+            });
     }
 
     public get(id: string): Promise<Typ> {

@@ -10,10 +10,10 @@
             </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <button mat-icon-button routerLink="/typ/{{element.id}}">
+            <button mat-icon-button routerLink="/typ/{{element.id}}" *ngIf="!element.readonly">
                 <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="openDeleteDialog(element)">
+            <button mat-icon-button (click)="openDeleteDialog(element)" *ngIf="!element.readonly">
                 <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
             </button>
         </mat-cell>
