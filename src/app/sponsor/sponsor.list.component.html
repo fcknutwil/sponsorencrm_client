@@ -5,7 +5,9 @@
         </mat-form-field>
     </div>
 </div>
-<mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear (matSortChange)="sort($event)" *ngIf="dataSource">
+<mat-table #table [dataSource]="dataSource"
+           matSort matSortActive="name" matSortDirection="asc" matSortDisableClear (matSortChange)="sort($event)"
+           *ngIf="dataSource">
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Sponsor</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.name}} {{element.vorname}}</mat-cell>
