@@ -22,7 +22,7 @@ deploy:
     skip_cleanup: true
     script: node scripts/deploy.js $FTP_HOST $FTP_USER_SANDBOX $FTP_PASSWORD_SANDBOX
     on:
-      branch: casfee
+      branch: sandbox
   - provider: releases
     skip_cleanup: true
     api_key: $GITHUB_OAUTH
