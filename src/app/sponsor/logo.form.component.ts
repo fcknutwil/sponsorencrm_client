@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: "logo-form",
-    template: require("./logo.form.component.html"),
+    templateUrl:  "./logo.form.component.html",
 })
 export class LogoFormComponent implements OnInit {
     public form: FormGroup;

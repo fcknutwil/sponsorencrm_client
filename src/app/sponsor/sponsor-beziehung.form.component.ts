@@ -5,7 +5,7 @@ import {Beziehung, BeziehungTyp, SponsorBeziehung} from "./sponsor-beziehung.typ
 
 @Component({
     selector: "sponsor-beziehung-form",
-    template: require("./sponsor-beziehung.form.component.html")
+    templateUrl:  "./sponsor-beziehung.form.component.html"
 })
 export class SponsorBeziehungFormComponent implements OnInit {
 

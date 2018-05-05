@@ -10,7 +10,7 @@ import {MatCheckboxChange, MatSlideToggleChange} from "@angular/material";
 
 @Component({
     selector: "engagement-form",
-    template: require("./engagement.form.component.html")
+    templateUrl:  "./engagement.form.component.html"
 })
 export class EngagementFormComponent implements OnInit {
 

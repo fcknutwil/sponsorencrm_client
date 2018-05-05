@@ -6,7 +6,7 @@ import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "typ-list",
-    template: require("./typ.list.component.html")
+    templateUrl:  "./typ.list.component.html"
 })
 export class TypListComponent implements OnInit {
 

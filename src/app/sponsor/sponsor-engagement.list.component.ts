@@ -7,7 +7,7 @@ import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "sponsor-engagement-list",
-    template: require("./sponsor-engagement.list.component.html"),
+    templateUrl:  "./sponsor-engagement.list.component.html"
 })
 export class SponsorEngagementListComponent implements OnInit {
     public id: number;

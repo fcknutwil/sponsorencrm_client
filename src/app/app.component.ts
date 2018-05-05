@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 
 @Component({
     selector: "sponsoren-crm-app",
-    template: require("./app.component.html")
+    templateUrl:  "./app.component.html"
 })
 export class AppComponent implements OnInit, OnDestroy {
     public isOverlayVisible: boolean = false;

@@ -7,7 +7,7 @@ import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "dokument-list",
-    template: require("./dokument.list.component.html"),
+    templateUrl:  "./dokument.list.component.html"
 })
 export class DokumentListComponent implements OnInit {
     public id: number;

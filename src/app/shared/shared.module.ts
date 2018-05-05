@@ -39,9 +39,9 @@ import {MediaMatcher} from "@angular/cdk/layout";
 import {SponsortypPipe} from "./sponsortyp.pipe";
 import {ErrorMessageService} from "./error-message.service";
 import {ResponseErrorInterceptor} from "./response-error-interceptor.service";
-import {BeziehungtypPipe} from "./beziehungtyp.pipe";
 import {StorageService} from "./storage.service";
 import {MatPaginatorIntlDeService} from "./mat-paginator-intl-de.service";
+import {BeziehungtypPipe} from "./beziehungtyp.pipe";
 
 @NgModule({
     imports: [

@@ -6,7 +6,7 @@ import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "engagement-list",
-    template: require("./engagement.list.component.html")
+    templateUrl:  "./engagement.list.component.html"
 })
 export class EngagementListComponent implements OnInit {
 

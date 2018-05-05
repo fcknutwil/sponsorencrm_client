@@ -4,16 +4,16 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {SponsorService} from "./sponsor.service";
 import {OrtService} from "./ort.service";
 import {Ort} from "./ort.types";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 import {FormControl, ValidatorFn, AbstractControl} from "@angular/forms";
-import {startWith} from "rxjs/operators/startWith";
-import {map} from "rxjs/operators/map";
+import {startWith} from "rxjs/operators";
+import {map} from "rxjs/operators";
 
 import * as _ from "lodash";
 
 @Component({
     selector: "sponsor-form",
-    template: require("./sponsor.form.component.html"),
+    templateUrl:  "./sponsor.form.component.html"
 })
 export class SponsorFormComponent implements OnInit {
     public plzort: FormControl = new FormControl("", {
@@ -47,8 +47,6 @@ export class SponsorFormComponent implements OnInit {
         });
 
         this.plzort.valueChanges
-            .debounceTime(400)
-            .distinctUntilChanged()
             .subscribe((term) => {
                 const ort = _.find(this.ortList, {fullname: term}) as Ort;
                 if (ort) {

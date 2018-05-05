@@ -3,7 +3,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from "@angular/material";
 
 @Component({
     selector: "yes-no-dialog",
-    template: require("./yes-no-dialog.component.html")
+    templateUrl:  "./yes-no-dialog.component.html"
 })
 export class YesNoDialogComponent {
 

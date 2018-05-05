@@ -5,7 +5,7 @@ import {TypService} from "./typ.service";
 
 @Component({
     selector: "typ-form",
-    template: require("./typ.form.component.html")
+    templateUrl:  "./typ.form.component.html"
 })
 export class TypFormComponent implements OnInit {
 

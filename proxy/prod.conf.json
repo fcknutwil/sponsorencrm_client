@@ -1,0 +1,6 @@
+{
+  "/rest/*": {
+    "target": "https://crmsponsoren.fcknutwil.ch",
+    "changeOrigin": true
+  }
+}

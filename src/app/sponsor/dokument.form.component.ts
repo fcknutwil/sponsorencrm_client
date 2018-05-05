@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: "dokument-form",
-    template: require("./dokument.form.component.html"),
+    templateUrl:  "./dokument.form.component.html"
 })
 export class DokumentFormComponent implements OnInit {
     public form: FormGroup;

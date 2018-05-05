@@ -7,7 +7,7 @@ import {Engagement} from "../engagement/engagement.types";
 
 @Component({
     selector: "sponsor-engagement-form",
-    template: require("./sponsor-engagement.form.component.html")
+    templateUrl:  "./sponsor-engagement.form.component.html"
 })
 export class SponsorEngagementFormComponent implements OnInit {
 

@@ -2,14 +2,13 @@ import {Component, OnInit} from "@angular/core";
 import {MatDialog, MatTableDataSource} from "@angular/material";
 import {ActivatedRoute} from "@angular/router";
 import {Dokument} from "./dokument.types";
-import {DokumentService} from "./dokument.service";
 import {Logo} from "./logo.types";
 import {LogoService} from "./logo.service";
 import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
 
 @Component({
     selector: "logo-list",
-    template: require("./logo.list.component.html"),
+    templateUrl:  "./logo.list.component.html"
 })
 export class LogoListComponent implements OnInit {
     public id: number;

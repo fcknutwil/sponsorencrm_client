@@ -1,4 +1,4 @@
-import {Subject} from "rxjs/Subject";
+import {Subject} from "rxjs";
 import {Component, ElementRef, HostBinding, HostListener, Input, OnDestroy, OnInit, Renderer2} from "@angular/core";
 import {ControlValueAccessor, NgControl} from "@angular/forms";
 import {MatFormFieldControl} from "@angular/material";
@@ -8,7 +8,7 @@ import {FileInput} from "./file-input.model";
 
 @Component({
     selector: "app-file-input",
-    template: require("./file-input.component.html"),
+    templateUrl:  "./file-input.component.html",
     providers: [
         {provide: MatFormFieldControl, useExisting: FileInputComponent}
     ]
@@ -36,7 +36,7 @@ export class FileInputComponent implements MatFormFieldControl<FileInput>, Contr
                 private fm: FocusMonitor, private _elementRef: ElementRef, private _renderer: Renderer2) {
 
         ngControl.valueAccessor = this;
-        fm.monitor(_elementRef.nativeElement, _renderer, true).subscribe(origin => {
+        fm.monitor(_elementRef.nativeElement, true).subscribe(origin => {
             this.focused = !!origin;
             this.stateChanges.next();
         });
@@ -161,5 +161,8 @@ export class FileInputComponent implements MatFormFieldControl<FileInput>, Contr
         this.stateChanges.complete();
         this.fm.stopMonitoring(this._elementRef.nativeElement);
     }
+
+  readonly autofilled: boolean;
+  readonly shouldLabelFloat: boolean;
 
 }
