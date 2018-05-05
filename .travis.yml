@@ -1,9 +1,10 @@
 language: node_js
 node_js:
-  - "10"
+  - "8.11"
 env:
   - MAJOR_VERSION=0
 before_script:
+  - npm i -g npm@6.0.0
   - npm ci
 script: npm run build
 after_success:
