@@ -4,6 +4,7 @@ import {SponsorEngagementService} from './sponsor-engagement.service';
 import {SponsorEngagement} from './sponsor-engagement.types';
 import {EngagementService} from '../engagement/engagement.service';
 import {Engagement} from '../engagement/engagement.types';
+import {isMoment} from 'moment';
 
 @Component({
   selector: 'sponsor-engagement-form',
@@ -33,6 +34,12 @@ export class SponsorEngagementFormComponent implements OnInit {
   }
 
   public save(): void {
+    if (isMoment(this.entry.von)) {
+      this.entry.von = this.entry.von.format('YYYY-MM-DD');
+    }
+    if (isMoment(this.entry.bis)) {
+      this.entry.bis = this.entry.bis.format('YYYY-MM-DD');
+    }
     this.service.save(this.entry)
       .then(() => {
         this.router.navigate(['/sponsor', this.parentId, {outlets: {engagement: ['list']}}]);
