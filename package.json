@@ -5,6 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-sandbox": "ng serve --proxy-config proxy/sandbox.conf.json",
+    "start-prod": "ng serve --proxy-config proxy/prod.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -1,6 +1,6 @@
 {
   "/rest/*": {
-    "target": "https://sanxbox.crmsponsoren.fcknutwil.ch",
+    "target": "https://sandbox.crmsponsoren.fcknutwil.ch",
     "changeOrigin": true
   }
 }
