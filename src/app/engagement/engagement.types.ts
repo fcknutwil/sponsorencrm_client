@@ -8,6 +8,6 @@ export class Engagement {
 }
 
 export enum Zahlung {
-  annual = "annual",
-  onetime = "onetime",
+  annual = 'annual',
+  onetime = 'onetime',
 }

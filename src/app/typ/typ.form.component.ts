@@ -1,11 +1,11 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Typ} from "./typ.types";
-import {TypService} from "./typ.service";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Typ} from './typ.types';
+import {TypService} from './typ.service';
 
 @Component({
-  selector: "typ-form",
-  templateUrl: "./typ.form.component.html"
+  selector: 'typ-form',
+  templateUrl: './typ.form.component.html'
 })
 export class TypFormComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class TypFormComponent implements OnInit {
   public save(): void {
     this.typService.save(this.entry)
       .then(() => {
-        this.router.navigate(["/typ"]);
+        this.router.navigate(['/typ']);
       });
   }
 

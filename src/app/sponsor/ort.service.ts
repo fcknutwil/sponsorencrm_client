@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Ort} from "./ort.types";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Ort} from './ort.types';
 
 @Injectable()
 export class OrtService {
@@ -10,7 +10,7 @@ export class OrtService {
 
   public getList(): Promise<Ort[]> {
     return this.http
-      .get<Ort[]>("/ort")
+      .get<Ort[]>('/ort')
       .toPromise();
   }
 

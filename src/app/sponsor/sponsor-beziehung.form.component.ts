@@ -1,11 +1,11 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SponsorBeziehungService} from "./sponsor-beziehung.service";
-import {Beziehung, BeziehungTyp, SponsorBeziehung} from "./sponsor-beziehung.types";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SponsorBeziehungService} from './sponsor-beziehung.service';
+import {Beziehung, BeziehungTyp, SponsorBeziehung} from './sponsor-beziehung.types';
 
 @Component({
-  selector: "sponsor-beziehung-form",
-  templateUrl: "./sponsor-beziehung.form.component.html"
+  selector: 'sponsor-beziehung-form',
+  templateUrl: './sponsor-beziehung.form.component.html'
 })
 export class SponsorBeziehungFormComponent implements OnInit {
 
@@ -23,8 +23,8 @@ export class SponsorBeziehungFormComponent implements OnInit {
     this.route.params.subscribe((params) => this.id = params.id);
     this.route.parent.params.subscribe((params) => this.parentId = params.id);
 
-    this.beziehungService.getBeziehungen("crm").then((data) => this.crmBeziehungen = data);
-    this.beziehungService.getBeziehungen("donator").then((data) => this.donatorenBeziehungen = data);
+    this.beziehungService.getBeziehungen('crm').then((data) => this.crmBeziehungen = data);
+    this.beziehungService.getBeziehungen('donator').then((data) => this.donatorenBeziehungen = data);
 
     this.service.get(this.parentId, this.id)
       .then((data) => {
@@ -58,7 +58,7 @@ export class SponsorBeziehungFormComponent implements OnInit {
     }
     this.service.save(this.entry)
       .then(() => {
-        this.router.navigate(["/sponsor", this.parentId, {outlets: {beziehung: ["list"]}}]);
+        this.router.navigate(['/sponsor', this.parentId, {outlets: {beziehung: ['list']}}]);
       });
   }
 

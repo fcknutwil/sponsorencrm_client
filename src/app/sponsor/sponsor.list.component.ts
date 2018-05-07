@@ -1,12 +1,12 @@
-import {Component, OnInit, ViewChild} from "@angular/core";
-import {SponsorService} from "./sponsor.service";
-import {Sponsor} from "./sponsor.types";
-import {MatDialog, MatPaginator, MatTableDataSource, Sort} from "@angular/material";
-import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {SponsorService} from './sponsor.service';
+import {Sponsor} from './sponsor.types';
+import {MatDialog, MatPaginator, MatTableDataSource, Sort} from '@angular/material';
+import {YesNoDialogComponent} from '../shared/yes-no-dialog.component';
 
 @Component({
-  selector: "sponsor-list",
-  templateUrl: "./sponsor.list.component.html"
+  selector: 'sponsor-list',
+  templateUrl: './sponsor.list.component.html'
 })
 export class SponsorListComponent implements OnInit {
 
@@ -22,9 +22,9 @@ export class SponsorListComponent implements OnInit {
   }
 
   public sort(sort: Sort): void {
-    if (sort.active && sort.direction != '') {
+    if (sort.active && sort.direction !== '') {
       this.dataSource.data = this.dataSource.data.slice().sort((a, b) => {
-        let isAsc = sort.direction == 'asc';
+        const isAsc = sort.direction === 'asc';
         switch (sort.active) {
           case 'name':
             return this.compare(`${a.name} ${a.vorname}`, `${b.name} ${b.vorname}`, isAsc);
@@ -39,7 +39,7 @@ export class SponsorListComponent implements OnInit {
 
   public openDeleteDialog(entry: Sponsor): void {
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      data: {title: "Eintrag löschen", text: "Wollen Sie den Eintrag wirklich löschen?"}
+      data: {title: 'Eintrag löschen', text: 'Wollen Sie den Eintrag wirklich löschen?'}
     });
 
     dialogRef.afterClosed().subscribe((result) => {

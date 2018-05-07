@@ -1,10 +1,10 @@
-import {NgModule} from "@angular/core";
-import {TypListComponent} from "./typ.list.component";
-import {RouterModule} from "@angular/router";
-import {routes} from "./typ.route";
-import {SharedModule} from "../shared/shared.module";
-import {TypService} from "./typ.service";
-import {TypFormComponent} from "./typ.form.component";
+import {NgModule} from '@angular/core';
+import {TypListComponent} from './typ.list.component';
+import {RouterModule} from '@angular/router';
+import {routes} from './typ.route';
+import {SharedModule} from '../shared/shared.module';
+import {TypService} from './typ.service';
+import {TypFormComponent} from './typ.form.component';
 
 @NgModule({
   imports: [

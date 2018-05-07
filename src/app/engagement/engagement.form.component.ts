@@ -1,16 +1,16 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Engagement} from "./engagement.types";
-import {EngagementService} from "./engagement.service";
-import {TypService} from "../typ/typ.service";
-import {Typ} from "../typ/typ.types";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Engagement} from './engagement.types';
+import {EngagementService} from './engagement.service';
+import {TypService} from '../typ/typ.service';
+import {Typ} from '../typ/typ.types';
 
-import * as _ from "lodash";
-import {MatCheckboxChange, MatSlideToggleChange} from "@angular/material";
+import * as _ from 'lodash';
+import {MatCheckboxChange, MatSlideToggleChange} from '@angular/material';
 
 @Component({
-  selector: "engagement-form",
-  templateUrl: "./engagement.form.component.html"
+  selector: 'engagement-form',
+  templateUrl: './engagement.form.component.html'
 })
 export class EngagementFormComponent implements OnInit {
 
@@ -35,7 +35,7 @@ export class EngagementFormComponent implements OnInit {
   public save(): void {
     this.engagementService.save(this.entry)
       .then(() => {
-        this.router.navigate(["/engagement"]);
+        this.router.navigate(['/engagement']);
       });
   }
 

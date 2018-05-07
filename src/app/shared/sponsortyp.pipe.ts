@@ -1,14 +1,14 @@
-import {Pipe, PipeTransform} from "@angular/core";
-import {Sponsortyp} from "../sponsor/sponsor.types";
+import {Pipe, PipeTransform} from '@angular/core';
+import {Sponsortyp} from '../sponsor/sponsor.types';
 
-@Pipe({name: "sponsortyp"})
+@Pipe({name: 'sponsortyp'})
 export class SponsortypPipe implements PipeTransform {
   public transform(value: string): string {
     if (value === Sponsortyp.company) {
-      return "Firma";
+      return 'Firma';
     } else if (value === Sponsortyp.individual) {
-      return "Privatperson";
+      return 'Privatperson';
     }
-    return "???";
+    return '???';
   }
 }

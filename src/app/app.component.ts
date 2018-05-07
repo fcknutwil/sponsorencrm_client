@@ -1,18 +1,18 @@
-import {MediaMatcher} from "@angular/cdk/layout";
-import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
-import {Subscription} from "rxjs";
-import {PendingRequestService} from "./shared/pending-request.service";
-import {SessionService} from "./shared/session.service";
-import {MatDialog, MatSidenav} from "@angular/material";
-import {YesNoDialogComponent} from "./shared/yes-no-dialog.component";
-import {Router} from "@angular/router";
+import {MediaMatcher} from '@angular/cdk/layout';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {PendingRequestService} from './shared/pending-request.service';
+import {SessionService} from './shared/session.service';
+import {MatDialog, MatSidenav} from '@angular/material';
+import {YesNoDialogComponent} from './shared/yes-no-dialog.component';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: "sponsoren-crm-app",
-  templateUrl: "./app.component.html"
+  selector: 'sponsoren-crm-app',
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  public isOverlayVisible: boolean = false;
+  public isOverlayVisible = false;
   public navItems: any[];
   @ViewChild(MatSidenav) sidenav: MatSidenav;
   private mobileQuery: MediaQueryList;
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.mobileQuery = this.media.matchMedia("(max-width: 600px)");
+    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
 
@@ -34,14 +34,14 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isOverlayVisible = hasPendingRequests;
       });
     this.navItems = [{
-      link: "/",
-      text: "Sponsoren"
+      link: '/',
+      text: 'Sponsoren'
     }, {
-      link: "/engagement",
-      text: "Engagements"
+      link: '/engagement',
+      text: 'Engagements'
     }, {
-      link: "/typ",
-      text: "Sponsortypen"
+      link: '/typ',
+      text: 'Sponsortypen'
     }];
   }
 
@@ -61,13 +61,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public logout(): void {
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      data: {title: "Abmelden", text: "Wollen Sie sich wirklich abmelden?"}
+      data: {title: 'Abmelden', text: 'Wollen Sie sich wirklich abmelden?'}
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.sessionService.close();
-        this.router.navigate(["/login"]);
+        this.router.navigate(['/login']);
       }
     });
   }

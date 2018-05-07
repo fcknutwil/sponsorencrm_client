@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Dokument} from "./dokument.types";
-import {DokumentService} from "./dokument.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Dokument} from './dokument.types';
+import {DokumentService} from './dokument.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: "dokument-form",
-  templateUrl: "./dokument.form.component.html"
+  selector: 'dokument-form',
+  templateUrl: './dokument.form.component.html'
 })
 export class DokumentFormComponent implements OnInit {
   public form: FormGroup;
@@ -18,7 +18,7 @@ export class DokumentFormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.route.parent.params.subscribe((params) => {
-      if (params.id !== "new") {
+      if (params.id !== 'new') {
         this.sponsorId = params.id;
       }
     });
@@ -41,11 +41,11 @@ export class DokumentFormComponent implements OnInit {
 
     // Wenn der Dateiinhalt ausgelesen wurde...
     reader.onload = (theFileData: any) => {
-      senddata.content = theFileData.target.result.split(",").pop();
+      senddata.content = theFileData.target.result.split(',').pop();
 
       this.service.add(this.sponsorId, senddata)
         .then(() => {
-          this.router.navigate(["/sponsor", this.sponsorId, {outconsts: {dokument: ["list"]}}]);
+          this.router.navigate(['/sponsor', this.sponsorId, {outconsts: {dokument: ['list']}}]);
         });
     };
     reader.readAsDataURL(uploadDatei);

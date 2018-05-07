@@ -8,5 +8,5 @@ export class MatPaginatorIntlDeService extends MatPaginatorIntl {
       return '';
     }
     return `${page * pageSize + 1} bis ${Math.min((page + 1) * pageSize, length)}` + (length > pageSize ? ` von ${length}` : '');
-  }
+  };
 }

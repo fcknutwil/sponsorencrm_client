@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {NgModule} from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -21,9 +21,9 @@ import {
   MatSortModule,
   MatTableModule,
   MatToolbarModule,
-} from "@angular/material";
-import {CdkTableModule} from "@angular/cdk/table";
-import {MatPaginatorIntlDeService} from "./mat-paginator-intl-de.service";
+} from '@angular/material';
+import {CdkTableModule} from '@angular/cdk/table';
+import {MatPaginatorIntlDeService} from './mat-paginator-intl-de.service';
 
 const modules = [
   CdkTableModule,

@@ -1,21 +1,21 @@
-import {Component, OnInit} from "@angular/core";
-import {Sponsor} from "./sponsor.types";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SponsorService} from "./sponsor.service";
-import {OrtService} from "./ort.service";
-import {Ort} from "./ort.types";
-import {Observable} from "rxjs";
-import {AbstractControl, FormControl, ValidatorFn} from "@angular/forms";
-import {map, startWith} from "rxjs/operators";
+import {Component, OnInit} from '@angular/core';
+import {Sponsor} from './sponsor.types';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SponsorService} from './sponsor.service';
+import {OrtService} from './ort.service';
+import {Ort} from './ort.types';
+import {Observable} from 'rxjs';
+import {AbstractControl, FormControl, ValidatorFn} from '@angular/forms';
+import {map, startWith} from 'rxjs/operators';
 
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 @Component({
-  selector: "sponsor-form",
-  templateUrl: "./sponsor.form.component.html"
+  selector: 'sponsor-form',
+  templateUrl: './sponsor.form.component.html'
 })
 export class SponsorFormComponent implements OnInit {
-  public plzort: FormControl = new FormControl("", {
+  public plzort: FormControl = new FormControl('', {
       validators: this.invalidPlaceValidator()
     }
   );
@@ -34,7 +34,7 @@ export class SponsorFormComponent implements OnInit {
   public invalidPlaceValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
       return _.find(this.ortList, {fullname: control.value})
-        ? null : {"kein gültiger Ort": {value: control.value}};
+        ? null : {'kein gültiger Ort': {value: control.value}};
     };
   }
 
@@ -42,7 +42,7 @@ export class SponsorFormComponent implements OnInit {
     this.ortService.getList().then((data) => {
       this.ortList = data;
       this.filteredList = this.plzort.valueChanges
-        .pipe(startWith(""), map((val) => this.filter(val)));
+        .pipe(startWith(''), map((val) => this.filter(val)));
     });
 
     this.plzort.valueChanges
@@ -69,7 +69,7 @@ export class SponsorFormComponent implements OnInit {
   public save(): void {
     this.service.save(this.sponsor)
       .then(() => {
-        this.router.navigate(["/sponsor"]);
+        this.router.navigate(['/sponsor']);
       });
   }
 }

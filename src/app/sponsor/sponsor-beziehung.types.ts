@@ -19,7 +19,7 @@ export class Beziehung {
 }
 
 export enum BeziehungTyp {
-  crm = "crm",
-  donator = "donator",
-  other = "other"
+  crm = 'crm',
+  donator = 'donator',
+  other = 'other'
 }

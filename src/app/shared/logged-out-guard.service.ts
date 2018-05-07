@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {ActivatedRouteSnapshot, CanActivate, Router} from "@angular/router";
-import {SessionService} from "./session.service";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router} from '@angular/router';
+import {SessionService} from './session.service';
 
 @Injectable()
 export class LoggedOutGuard implements CanActivate {
@@ -12,6 +12,6 @@ export class LoggedOutGuard implements CanActivate {
     if (!this.sessionService.isActive()) {
       return true;
     }
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 }

@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {Engagement} from "./engagement.types";
-import {MatDialog, MatTableDataSource} from "@angular/material";
-import {EngagementService} from "./engagement.service";
-import {YesNoDialogComponent} from "../shared/yes-no-dialog.component";
+import {Component, OnInit} from '@angular/core';
+import {Engagement} from './engagement.types';
+import {MatDialog, MatTableDataSource} from '@angular/material';
+import {EngagementService} from './engagement.service';
+import {YesNoDialogComponent} from '../shared/yes-no-dialog.component';
 
 @Component({
-  selector: "engagement-list",
-  templateUrl: "./engagement.list.component.html"
+  selector: 'engagement-list',
+  templateUrl: './engagement.list.component.html'
 })
 export class EngagementListComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class EngagementListComponent implements OnInit {
 
   public openDeleteDialog(entry: Engagement): void {
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      data: {title: "Eintrag löschen", text: "Wollen Sie den Eintrag wirklich löschen?"}
+      data: {title: 'Eintrag löschen', text: 'Wollen Sie den Eintrag wirklich löschen?'}
     });
 
     dialogRef.afterClosed().subscribe((result) => {

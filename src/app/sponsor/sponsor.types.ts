@@ -1,4 +1,4 @@
-import {Ort} from "./ort.types";
+import {Ort} from './ort.types';
 
 export class Sponsor {
   public id: number;
@@ -16,6 +16,6 @@ export class Sponsor {
 }
 
 export enum Sponsortyp {
-  company = "company",
-  individual = "individual",
+  company = 'company',
+  individual = 'individual',
 }

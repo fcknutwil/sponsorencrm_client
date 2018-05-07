@@ -1,12 +1,12 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
-import * as moment from "moment";
-import {StorageService} from "./storage.service";
+import * as moment from 'moment';
+import {StorageService} from './storage.service';
 
 @Injectable()
 export class SessionService {
-  private static readonly TOKEN_KEY = "jwt";
-  private static readonly TOKEN_EXPIRE_KEY = "jwt_expire";
+  private static readonly TOKEN_KEY = 'jwt';
+  private static readonly TOKEN_EXPIRE_KEY = 'jwt_expire';
   private static readonly FROM_SECONDS_TO_MILLIS = 1000;
 
   constructor(private storage: StorageService) {

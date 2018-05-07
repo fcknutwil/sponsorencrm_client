@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {Observable, ReplaySubject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Observable, ReplaySubject} from 'rxjs';
 
 @Injectable()
 export class PendingRequestService {
 
-  private count: number = 0;
+  private count = 0;
   private replaySubject: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
 
   public hasPendingRequests(): Observable<boolean> {

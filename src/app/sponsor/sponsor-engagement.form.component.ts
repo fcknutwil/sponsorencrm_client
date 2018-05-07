@@ -1,13 +1,13 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SponsorEngagementService} from "./sponsor-engagement.service";
-import {SponsorEngagement} from "./sponsor-engagement.types";
-import {EngagementService} from "../engagement/engagement.service";
-import {Engagement} from "../engagement/engagement.types";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SponsorEngagementService} from './sponsor-engagement.service';
+import {SponsorEngagement} from './sponsor-engagement.types';
+import {EngagementService} from '../engagement/engagement.service';
+import {Engagement} from '../engagement/engagement.types';
 
 @Component({
-  selector: "sponsor-engagement-form",
-  templateUrl: "./sponsor-engagement.form.component.html"
+  selector: 'sponsor-engagement-form',
+  templateUrl: './sponsor-engagement.form.component.html'
 })
 export class SponsorEngagementFormComponent implements OnInit {
 
@@ -35,7 +35,7 @@ export class SponsorEngagementFormComponent implements OnInit {
   public save(): void {
     this.service.save(this.entry)
       .then(() => {
-        this.router.navigate(["/sponsor", this.parentId, {outlets: {engagement: ["list"]}}]);
+        this.router.navigate(['/sponsor', this.parentId, {outlets: {engagement: ['list']}}]);
       });
   }
 
