@@ -1,25 +1,25 @@
 <mat-table #table [dataSource]="dataSource" *ngIf="dataSource">
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'logo':['form', 'new']}}]">
-                <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
-            </button>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <a mat-icon-button href="rest/download/logo/{{element.id}}">
-                <mat-icon aria-label="Eintrag bearbeiten">file_download</mat-icon>
-            </a>
-            <button mat-icon-button (click)="openDeleteDialog(element)">
-                <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
-            </button>
-        </mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button [routerLink]="['/sponsor', id, { outlets: {'logo':['form', 'new']}}]">
+        <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a mat-icon-button href="rest/download/logo/{{element.id}}">
+        <mat-icon aria-label="Eintrag bearbeiten">file_download</mat-icon>
+      </a>
+      <button mat-icon-button (click)="openDeleteDialog(element)">
+        <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['name', 'actions']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['name', 'actions']"></mat-row>
+  <mat-header-row *matHeaderRowDef="['name', 'actions']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'actions']"></mat-row>
 
 </mat-table>

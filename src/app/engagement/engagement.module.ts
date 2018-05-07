@@ -7,17 +7,17 @@ import {EngagementService} from "./engagement.service";
 import {EngagementFormComponent} from "./engagement.form.component";
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        SharedModule
-    ],
-    declarations: [
-        EngagementListComponent,
-        EngagementFormComponent
-    ],
-    providers: [
-        EngagementService
-    ]
+  imports: [
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
+  declarations: [
+    EngagementListComponent,
+    EngagementFormComponent
+  ],
+  providers: [
+    EngagementService
+  ]
 })
 export class EngagementModule {
 }

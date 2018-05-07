@@ -9,56 +9,56 @@ import * as _ from "lodash";
 import {MatCheckboxChange, MatSlideToggleChange} from "@angular/material";
 
 @Component({
-    selector: "engagement-form",
-    templateUrl:  "./engagement.form.component.html"
+  selector: "engagement-form",
+  templateUrl: "./engagement.form.component.html"
 })
 export class EngagementFormComponent implements OnInit {
 
-    public entry: Engagement;
-    public typs: Typ[];
+  public entry: Engagement;
+  public typs: Typ[];
 
-    constructor(private engagementService: EngagementService, private typService: TypService,
-                private route: ActivatedRoute, private router: Router) {
-    }
+  constructor(private engagementService: EngagementService, private typService: TypService,
+              private route: ActivatedRoute, private router: Router) {
+  }
 
-    public ngOnInit(): void {
-        this.route.params.subscribe((params) =>
-            this.engagementService.get(params.id).then((data) => {
-                this.entry = data;
-            }));
-        this.typService.getList()
-            .then((data) => {
-                this.typs = data;
-            });
-    }
+  public ngOnInit(): void {
+    this.route.params.subscribe((params) =>
+      this.engagementService.get(params.id).then((data) => {
+        this.entry = data;
+      }));
+    this.typService.getList()
+      .then((data) => {
+        this.typs = data;
+      });
+  }
 
-    public save(): void {
-        this.engagementService.save(this.entry)
-            .then(() => {
-                this.router.navigate(["/engagement"]);
-            });
-    }
+  public save(): void {
+    this.engagementService.save(this.entry)
+      .then(() => {
+        this.router.navigate(["/engagement"]);
+      });
+  }
 
-    public isSeebliPlus(): boolean {
-        return this.entry.seebli;
-    }
+  public isSeebliPlus(): boolean {
+    return this.entry.seebli;
+  }
 
-    public seebliPlusChanged(event: MatSlideToggleChange): void {
-        this.entry.seebli = event.checked;
-    }
+  public seebliPlusChanged(event: MatSlideToggleChange): void {
+    this.entry.seebli = event.checked;
+  }
 
-    public isTypChecked(id: number): boolean {
-        return _.includes(this.entry.types, id);
-    }
+  public isTypChecked(id: number): boolean {
+    return _.includes(this.entry.types, id);
+  }
 
-    public typChanged(event: MatCheckboxChange): void {
-        if (!_.isArray(this.entry.types)) {
-            this.entry.types = [];
-        }
-        if (!event.checked) {
-            _.remove(this.entry.types, (v) => v === event.source.value);
-        } else if (!this.entry.types.includes(event.source.value as any)) {
-            this.entry.types.push(event.source.value as any);
-        }
+  public typChanged(event: MatCheckboxChange): void {
+    if (!_.isArray(this.entry.types)) {
+      this.entry.types = [];
     }
+    if (!event.checked) {
+      _.remove(this.entry.types, (v) => v === event.source.value);
+    } else if (!this.entry.types.includes(event.source.value as any)) {
+      this.entry.types.push(event.source.value as any);
+    }
+  }
 }

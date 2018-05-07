@@ -1,31 +1,31 @@
 <div id="overlay" *ngIf="isOverlayVisible">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
 </div>
 
 <div class="container">
-    <mat-toolbar color="primary" class="toolbar">
-        <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isLoggedIn()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <h1 class="app-name">Sponsoren CRM</h1>
-        <span style="flex: 1 1 auto;"></span>
-        <mat-icon *ngIf="!isLoggedIn()">lock_outline</mat-icon>
-        <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn()">
-            <mat-icon>lock_open</mat-icon>
-        </button>
-    </mat-toolbar>
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isLoggedIn()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">Sponsoren CRM</h1>
+    <span style="flex: 1 1 auto;"></span>
+    <mat-icon *ngIf="!isLoggedIn()">lock_outline</mat-icon>
+    <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn()">
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </mat-toolbar>
 
-    <mat-sidenav-container class="sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-            <mat-nav-list>
-                <a mat-list-item (click)="navigate(nav.link)" *ngFor="let nav of navItems">{{nav.text}}</a>
-            </mat-nav-list>
-        </mat-sidenav>
+  <mat-sidenav-container class="sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item (click)="navigate(nav.link)" *ngFor="let nav of navItems">{{nav.text}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-        <mat-sidenav-content>
-            <router-outlet></router-outlet>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

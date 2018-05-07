@@ -1,27 +1,27 @@
 import {Injectable} from "@angular/core";
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from "@angular/common/http";
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {map, catchError, finalize} from "rxjs/operators";
+import {catchError, finalize, map} from "rxjs/operators";
 import {ErrorMessageService} from "./error-message.service";
 
 @Injectable()
 export class ResponseErrorInterceptor implements HttpInterceptor {
 
-    constructor(private errorMessageService: ErrorMessageService) {
-    }
+  constructor(private errorMessageService: ErrorMessageService) {
+  }
 
-    public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(
-            map((event) => {
-                return event;
-            }),
-            catchError((error) => {
-                this.errorMessageService.logHttpError(error);
-                return Observable.throw(error);
-            }),
-            finalize(() => {
-                // emtpy
-            })
-        );
-    }
+  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      map((event) => {
+        return event;
+      }),
+      catchError((error) => {
+        this.errorMessageService.logHttpError(error);
+        return Observable.throw(error);
+      }),
+      finalize(() => {
+        // emtpy
+      })
+    );
+  }
 }

@@ -1,48 +1,48 @@
 <div layout="column" class="form">
-    <div class="form-container">
-        <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
-    </div>
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
 </div>
 <mat-table #table [dataSource]="dataSource"
            matSort matSortActive="name" matSortDirection="asc" matSortDisableClear (matSortChange)="sort($event)"
            *ngIf="dataSource">
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Sponsor</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.name}} {{element.vorname}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ort">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Ort</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.ortstring}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="active">
-        <mat-header-cell *matHeaderCellDef>Aktiv</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <mat-icon aria-label="aktiv">check</mat-icon>
-        </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button [routerLink]="['/sponsor', 'new']">
-                <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
-            </button>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <button mat-icon-button
-                    [routerLink]="['/sponsor', element.id,
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Sponsor</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}} {{element.vorname}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ort">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Ort</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.ortstring}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="active">
+    <mat-header-cell *matHeaderCellDef>Aktiv</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon aria-label="aktiv">check</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button [routerLink]="['/sponsor', 'new']">
+        <mat-icon aria-label="Neuer Eintrag">add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button
+              [routerLink]="['/sponsor', element.id,
                         { outlets: {'engagement':['list'], 'beziehung':['list'], 'dokument':['list'], 'logo':['list']}}
                     ]">
-                <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
-            </button>
-            <button mat-icon-button (click)="openDeleteDialog(element)">
-                <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
-            </button>
-        </mat-cell>
-    </ng-container>
+        <mat-icon aria-label="Eintrag bearbeiten">edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openDeleteDialog(element)">
+        <mat-icon aria-label="Eintrag löschen">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['name', 'ort', 'actions']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['name', 'ort', 'actions']"></mat-row>
+  <mat-header-row *matHeaderRowDef="['name', 'ort', 'actions']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'ort', 'actions']"></mat-row>
 
 </mat-table>
 

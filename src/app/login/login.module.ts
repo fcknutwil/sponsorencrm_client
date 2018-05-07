@@ -7,16 +7,16 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./login.route";
 
 @NgModule({
-    declarations: [
-        LoginComponent
-    ],
-    imports: [
-        RouterModule.forChild(routes),
-        SharedModule
-    ],
-    providers: [
-        LoginService
-    ]
+  declarations: [
+    LoginComponent
+  ],
+  imports: [
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
+  providers: [
+    LoginService
+  ]
 })
 export class LoginModule {
 }

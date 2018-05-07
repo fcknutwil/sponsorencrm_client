@@ -22,27 +22,27 @@ import {LogoListComponent} from "./logo.list.component";
 import {LogoFormComponent} from "./logo.form.component";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        SharedModule
-    ],
-    declarations: [
-        SponsorListComponent,
-        SponsorFormComponent,
-        SponsorEngagementListComponent,
-        SponsorEngagementFormComponent,
-        SponsorBeziehungListComponent,
-        SponsorBeziehungFormComponent,
-        DokumentListComponent,
-        DokumentFormComponent,
-        LogoListComponent,
-        LogoFormComponent,
-        FileInputComponent
-    ],
-    providers: [
-        DokumentService, LogoService, SponsorService, OrtService, SponsorEngagementService, SponsorBeziehungService
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
+  declarations: [
+    SponsorListComponent,
+    SponsorFormComponent,
+    SponsorEngagementListComponent,
+    SponsorEngagementFormComponent,
+    SponsorBeziehungListComponent,
+    SponsorBeziehungFormComponent,
+    DokumentListComponent,
+    DokumentFormComponent,
+    LogoListComponent,
+    LogoFormComponent,
+    FileInputComponent
+  ],
+  providers: [
+    DokumentService, LogoService, SponsorService, OrtService, SponsorEngagementService, SponsorBeziehungService
+  ]
 })
 export class SponsorModule {
 }

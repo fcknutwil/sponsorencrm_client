@@ -7,17 +7,17 @@ import {TypService} from "./typ.service";
 import {TypFormComponent} from "./typ.form.component";
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        SharedModule
-    ],
-    declarations: [
-        TypListComponent,
-        TypFormComponent
-    ],
-    providers: [
-        TypService
-    ]
+  imports: [
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
+  declarations: [
+    TypListComponent,
+    TypFormComponent
+  ],
+  providers: [
+    TypService
+  ]
 })
 export class TypModule {
 }

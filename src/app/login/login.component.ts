@@ -5,23 +5,23 @@ import {StorageService} from "../shared/storage.service";
 import {USERNAME_STORAGE_KEY} from "./login.types";
 
 @Component({
-    selector: "login",
-    templateUrl:  "./login.component.html"
+  selector: "login",
+  templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit {
-    private form: FormGroup;
+  private form: FormGroup;
 
-    public constructor(private loginService: LoginService, private storage: StorageService) {
-    }
+  public constructor(private loginService: LoginService, private storage: StorageService) {
+  }
 
-    public ngOnInit(): void {
-        this.form = new FormGroup({
-            name: new FormControl(this.storage.get(USERNAME_STORAGE_KEY), Validators.required),
-            password: new FormControl("", Validators.required),
-        });
-    }
+  public ngOnInit(): void {
+    this.form = new FormGroup({
+      name: new FormControl(this.storage.get(USERNAME_STORAGE_KEY), Validators.required),
+      password: new FormControl("", Validators.required),
+    });
+  }
 
-    public login(): void {
-        this.loginService.login(this.form.value);
-    }
+  public login(): void {
+    this.loginService.login(this.form.value);
+  }
 }

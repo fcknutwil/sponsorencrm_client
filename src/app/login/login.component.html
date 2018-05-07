@@ -1,18 +1,18 @@
 <div layout="column" class="form">
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <div class="form-container">
-            <mat-form-field>
-                <input formControlName="name" placeholder="Benutzer" matInput required/>
-            </mat-form-field>
-        </div>
-        <div class="form-container">
-            <mat-form-field>
-                <input formControlName="password" name="password" placeholder="Passwort" type="password" matInput
-                       required/>
-            </mat-form-field>
-        </div>
-        <div class="form-container">
-            <button mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
-        </div>
-    </form>
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <div class="form-container">
+      <mat-form-field>
+        <input formControlName="name" placeholder="Benutzer" matInput required/>
+      </mat-form-field>
+    </div>
+    <div class="form-container">
+      <mat-form-field>
+        <input formControlName="password" name="password" placeholder="Passwort" type="password" matInput
+               required/>
+      </mat-form-field>
+    </div>
+    <div class="form-container">
+      <button mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
+    </div>
+  </form>
 </div>

@@ -1,23 +1,24 @@
 <style>
-    :host {
-        display: inline-block;
-    }
-    :host:not(.file-input-disabled) {
-        cursor: pointer;
-    }
+  :host {
+    display: inline-block;
+  }
 
-    input {
-        width: 0px;
-        height: 0px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-    }
+  :host:not(.file-input-disabled) {
+    cursor: pointer;
+  }
 
-    .filename {
-        display: inline-block;
-    }
+  input {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .filename {
+    display: inline-block;
+  }
 </style>
 
 <input #input id="md-input-file" type="file" [attr.multiple]="multiple? '' : null">

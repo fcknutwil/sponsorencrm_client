@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SessionService} from "./session.service";
 import {LoggedInGuard} from "./logged-in-guard.service";
 import {LoggedOutGuard} from "./logged-out-guard.service";

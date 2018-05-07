@@ -13,34 +13,34 @@ import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from "@angular/material-mome
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
 
 const appRoutes: Routes = [
-    {
-        path: "",
-        redirectTo: "/sponsor",
-        pathMatch: "full"
-    }
+  {
+    path: "",
+    redirectTo: "/sponsor",
+    pathMatch: "full"
+  }
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        LoginModule,
-        SponsorModule,
-        EngagementModule,
-        TypModule,
-        SharedModule,
-        RouterModule.forRoot(appRoutes)
-    ],
-    providers: [
-        {provide: MAT_DATE_LOCALE, useValue: "de-CH"},
-        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-        {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    LoginModule,
+    SponsorModule,
+    EngagementModule,
+    TypModule,
+    SharedModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: "de-CH"},
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
 
-    ],
-    bootstrap: [AppComponent]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

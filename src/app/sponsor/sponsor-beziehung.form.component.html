@@ -1,39 +1,39 @@
 <div layout="column" class="form" *ngIf="entry">
-    <form (ngSubmit)="save()" #sponsorBeziehungForm="ngForm">
-        <div class="form-container">
-            <mat-radio-group [(ngModel)]="entry.typ" name="typ" required>
-                <mat-radio-button [value]="'crm'">{{'crm' | beziehungtyp}}</mat-radio-button>
-                <mat-radio-button [value]="'donator'">{{'donator' | beziehungtyp}}</mat-radio-button>
-                <mat-radio-button [value]="'other'">{{'other' | beziehungtyp}}</mat-radio-button>
-            </mat-radio-group>
-        </div>
-        <div class="form-container">
-            <mat-form-field *ngIf="entry.typ === 'crm'">
-                <mat-select [(value)]="entry.crmValue" name="kontakt" required placeholder="Kontakt">
-                    <mat-option [value]="beziehung.id" *ngFor="let beziehung of crmBeziehungen">{{beziehung.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field *ngIf="entry.typ === 'donator'">
-                <mat-select [(value)]="entry.donatorValue" name="kontakt" required placeholder="Kontakt">
-                    <mat-option [value]="beziehung.id" *ngFor="let beziehung of donatorenBeziehungen">{{beziehung.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field *ngIf="entry.typ === 'other'">
-                    <input [(ngModel)]="entry.otherValue" name="kontakt" required matInput placeholder="Kontakt"/>
-            </mat-form-field>
-        </div>
-        <div class="form-container">
-            <mat-form-field>
+  <form (ngSubmit)="save()" #sponsorBeziehungForm="ngForm">
+    <div class="form-container">
+      <mat-radio-group [(ngModel)]="entry.typ" name="typ" required>
+        <mat-radio-button [value]="'crm'">{{'crm' | beziehungtyp}}</mat-radio-button>
+        <mat-radio-button [value]="'donator'">{{'donator' | beziehungtyp}}</mat-radio-button>
+        <mat-radio-button [value]="'other'">{{'other' | beziehungtyp}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="form-container">
+      <mat-form-field *ngIf="entry.typ === 'crm'">
+        <mat-select [(value)]="entry.crmValue" name="kontakt" required placeholder="Kontakt">
+          <mat-option [value]="beziehung.id" *ngFor="let beziehung of crmBeziehungen">{{beziehung.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="entry.typ === 'donator'">
+        <mat-select [(value)]="entry.donatorValue" name="kontakt" required placeholder="Kontakt">
+          <mat-option [value]="beziehung.id" *ngFor="let beziehung of donatorenBeziehungen">{{beziehung.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="entry.typ === 'other'">
+        <input [(ngModel)]="entry.otherValue" name="kontakt" required matInput placeholder="Kontakt"/>
+      </mat-form-field>
+    </div>
+    <div class="form-container">
+      <mat-form-field>
                 <textarea [(ngModel)]="entry.notizen" name="notiz" matInput placeholder="Notiz" matTextareaAutosize
                           matAutosizeMinRows="2" matAutosizeMaxRows="8"></textarea>
-            </mat-form-field>
-        </div>
-        <div class="form-container">
-            <button mat-raised-button color="primary" [disabled]="!sponsorBeziehungForm.form.valid">Beziehung
-                Speichern
-            </button>
-        </div>
-    </form>
+      </mat-form-field>
+    </div>
+    <div class="form-container">
+      <button mat-raised-button color="primary" [disabled]="!sponsorBeziehungForm.form.valid">Beziehung
+        Speichern
+      </button>
+    </div>
+  </form>
 </div>
