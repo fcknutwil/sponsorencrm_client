@@ -11,11 +11,12 @@ import {EngagementModule} from './engagement/engagement.module';
 import {SponsorModule} from './sponsor/sponsor.module';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {DashboardModule} from './dashboard/dashboard.module';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/sponsor',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   }
 ];
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     LoginModule,
+    DashboardModule,
     SponsorModule,
     EngagementModule,
     TypModule,

@@ -1,0 +1,17 @@
+<mat-list *ngIf="data">
+  <mat-list-item *ngFor="let entry of data">
+    <h3 matLine>{{entry.year}}</h3>
+    <p matLine style="display: flex;
+     justify-content: space-between">
+      <span>FC Knutwil</span>
+      <span style="width: 150px; text-align: right">{{entry.value.fck.onetime | number:'1.2-2'}}</span>
+      <span style="width: 150px; text-align: right">{{entry.value.fck.annual | number:'1.2-2'}}</span>
+    </p>
+    <p matLine style="display: flex;
+     justify-content: space-between">
+      <span>Seebli Plus</span>
+      <span style="width: 150px; text-align: right">{{entry.value.seebliPlus.onetime | number:'1.2-2'}}</span>
+      <span style="width: 150px; text-align: right">{{entry.value.seebliPlus.annual | number:'1.2-2'}}</span>
+    </p>
+  </mat-list-item>
+</mat-list>

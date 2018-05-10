@@ -34,7 +34,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isOverlayVisible = hasPendingRequests;
       });
     this.navItems = [{
-      link: '/',
+      link: '/dashboard',
+      text: 'Dashboard'
+    }, {
+      link: '/sponsor',
       text: 'Sponsoren'
     }, {
       link: '/engagement',
