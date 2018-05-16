@@ -46,6 +46,11 @@
                           matAutosizeMinRows="2" matAutosizeMaxRows="8"></textarea>
       </mat-form-field>
     </div>
+    <div class="form-container">
+      <mat-form-field>
+        <input [value]="sponsor.changedUser" name="changedUser" matInput placeholder="letzte Änderung" readonly/>
+      </mat-form-field>
+    </div>
     <div *ngIf="sponsor.typ === 'company'" class="form-container">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
