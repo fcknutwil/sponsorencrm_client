@@ -1,6 +1,9 @@
+<mat-toolbar>
+  <span>Dashboard</span>
+</mat-toolbar>
 <mat-list *ngIf="data">
   <mat-list-item *ngFor="let entry of data">
-    <h3 matLine>{{entry.year}}</h3>
+    <h3 matLine><a [routerLink]="['/dashboard', entry.year]">{{entry.year}}</a></h3>
     <p matLine style="display: flex;
      justify-content: space-between">
       <span>FC Knutwil</span>
