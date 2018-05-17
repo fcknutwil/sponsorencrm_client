@@ -6,6 +6,7 @@ export class DashboardDetail {
   public betrag: number;
   public betragProRata!: string;
   public zahlung: Zahlung;
+  public seebli: boolean;
   public von: string;
   public bis: string;
 }
