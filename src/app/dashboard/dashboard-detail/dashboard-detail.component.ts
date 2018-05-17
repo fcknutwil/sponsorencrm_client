@@ -12,10 +12,10 @@ import {Zahlung} from '../../engagement/engagement.types';
 export class DashboardDetailComponent implements OnInit {
 
   year: string;
-  annualDataSource: MatTableDataSource<DashboardDetail>;
-  onetimeDataSource: MatTableDataSource<DashboardDetail>;
-  seebliAnnualDataSource: MatTableDataSource<DashboardDetail>;
-  seebliOnetimeDataSource: MatTableDataSource<DashboardDetail>;
+  list: {
+    title: string;
+    datasource: MatTableDataSource<DashboardDetail>
+  }[];
 
   constructor(private service: DashboardService, private route: ActivatedRoute) {
   }
@@ -24,10 +24,23 @@ export class DashboardDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.year = params.year;
       this.service.getDetail(params.year).then((data) => {
-        this.annualDataSource = new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.annual && !e.seebli)));
-        this.onetimeDataSource = new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.onetime && !e.seebli)));
-        this.seebliAnnualDataSource = new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.annual && e.seebli)));
-        this.seebliOnetimeDataSource = new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.onetime && e.seebli)));
+        this.list = [];
+        this.list.push({
+          title: 'FC Knutwil - Einmalig',
+          datasource: new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.annual && !e.seebli)))
+        });
+        this.list.push({
+          title: 'FC Knutwil - Jährlich',
+          datasource: new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.onetime && !e.seebli)))
+        });
+        this.list.push({
+          title: 'Seebli Plus - Einmalig',
+          datasource: new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.annual && e.seebli)))
+        });
+        this.list.push({
+          title: 'Seebli Plus - Jährlich',
+          datasource: new MatTableDataSource(data.filter((e => e.zahlung === Zahlung.onetime && e.seebli)))
+        });
       });
     });
   }

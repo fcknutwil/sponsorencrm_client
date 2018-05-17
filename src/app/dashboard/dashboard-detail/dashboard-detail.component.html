@@ -1,17 +1,17 @@
 <mat-toolbar>
   <span>Dashboard - {{year}}</span>
 </mat-toolbar>
-<mat-expansion-panel [expanded]="onetimeDataSource.data.length > 0" *ngIf="onetimeDataSource">
+<mat-expansion-panel *ngFor="let panel of list" [expanded]="panel.datasource.data.length > 0">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      FC Knutwil - Einmalig
+      {{panel.title}}
     </mat-panel-title>
     <mat-panel-description>
-      {{onetimeDataSource.data.length}}
+      {{panel.datasource.data.length}}
     </mat-panel-description>
   </mat-expansion-panel-header>
 
-  <mat-table #table [dataSource]="onetimeDataSource">
+  <mat-table #table [dataSource]="panel.datasource">
     <ng-container matColumnDef="sponsor">
       <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.sponsor}}</mat-cell>
@@ -37,113 +37,3 @@
   </mat-table>
 
 </mat-expansion-panel>
-<mat-expansion-panel [expanded]="annualDataSource.data.length > 0" *ngIf="annualDataSource">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      FC Knutwil - Jährlich
-    </mat-panel-title>
-    <mat-panel-description>
-      {{annualDataSource.data.length}}
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-  <mat-table #table [dataSource]="annualDataSource">
-    <ng-container matColumnDef="sponsor">
-      <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.sponsor}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="engagement">
-      <mat-header-cell *matHeaderCellDef>Engagement</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.engagement}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dauer">
-      <mat-header-cell *matHeaderCellDef>Dauer</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.von | date:'dd.MM.yy'}}<br/>{{element.bis | date:'dd.MM.yy'}}
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="betrag">
-      <mat-header-cell *matHeaderCellDef>Betrag<br/>pro Rata</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.betrag | number:'1.2-2'}}<br/>{{element.betragProRata ?
-        (element.betragProRata | number:'1.2-2') : '-'}}
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="['sponsor', 'engagement', 'dauer', 'betrag']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['sponsor', 'engagement', 'dauer', 'betrag']"></mat-row>
-  </mat-table>
-
-</mat-expansion-panel>
-<mat-expansion-panel [expanded]="seebliOnetimeDataSource.data.length > 0" *ngIf="seebliOnetimeDataSource">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Seebli Plus - Einmalig
-    </mat-panel-title>
-    <mat-panel-description>
-      {{seebliOnetimeDataSource.data.length}}
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-  <mat-table #table [dataSource]="seebliOnetimeDataSource">
-    <ng-container matColumnDef="sponsor">
-      <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.sponsor}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="engagement">
-      <mat-header-cell *matHeaderCellDef>Engagement</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.engagement}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dauer">
-      <mat-header-cell *matHeaderCellDef>Dauer</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.von | date:'dd.MM.yy'}}<br/>{{element.bis | date:'dd.MM.yy'}}
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="betrag">
-      <mat-header-cell *matHeaderCellDef>Betrag<br/>pro Rata</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.betrag | number:'1.2-2'}}<br/>{{element.betragProRata ?
-        (element.betragProRata | number:'1.2-2') : '-'}}
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="['sponsor', 'engagement', 'dauer', 'betrag']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['sponsor', 'engagement', 'dauer', 'betrag']"></mat-row>
-  </mat-table>
-
-</mat-expansion-panel>
-<mat-expansion-panel [expanded]="seebliAnnualDataSource.data.length > 0" *ngIf="seebliAnnualDataSource">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Seebli Plus - Jährlich
-    </mat-panel-title>
-    <mat-panel-description>
-      {{seebliAnnualDataSource.data.length}}
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-  <mat-table #table [dataSource]="seebliAnnualDataSource">
-    <ng-container matColumnDef="sponsor">
-      <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.sponsor}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="engagement">
-      <mat-header-cell *matHeaderCellDef>Engagement</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.engagement}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dauer">
-      <mat-header-cell *matHeaderCellDef>Dauer</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.von | date:'dd.MM.yy'}}<br/>{{element.bis | date:'dd.MM.yy'}}
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="betrag">
-      <mat-header-cell *matHeaderCellDef>Betrag<br/>pro Rata</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.betrag | number:'1.2-2'}}<br/>{{element.betragProRata ?
-        (element.betragProRata | number:'1.2-2') : '-'}}
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="['sponsor', 'engagement', 'dauer', 'betrag']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['sponsor', 'engagement', 'dauer', 'betrag']"></mat-row>
-  </mat-table>
-
-</mat-expansion-panel>
-
-
