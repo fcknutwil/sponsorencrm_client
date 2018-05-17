@@ -14,7 +14,9 @@
   <mat-table #table [dataSource]="panel.datasource">
     <ng-container matColumnDef="sponsor">
       <mat-header-cell *matHeaderCellDef>Sponsor</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.sponsor}}</mat-cell>
+      <mat-cell *matCellDef="let element"><a [routerLink]="['/sponsor', element.sponsorId,
+                        { outlets: {'engagement':['list'], 'beziehung':['list'], 'dokument':['list'], 'logo':['list']}}
+                    ]">{{element.sponsor}}</a></mat-cell>
     </ng-container>
     <ng-container matColumnDef="engagement">
       <mat-header-cell *matHeaderCellDef>Engagement</mat-header-cell>
